@@ -7,6 +7,7 @@ import Paragraph from '@/components/ui/Paragraph';
 import { buttonVariants } from '@/components/ui/Button';
 import AvatarDemo from '@/components/Avatar';
 import Subheading from '@/components/ui/SubHeading';
+import SeparatorDemo from '@/components/ui/Separator';
 
 const inter = Inter({ subsets: ['latin'] });
 const nunito = Nunito({ subsets: ['latin'] });
@@ -23,7 +24,7 @@ export default function Home() {
       <div className='container pt-30 px-6 min-h-full w-full mx-auto'>
         <div className='h-full gap-5 flex flex-col justify-center items-center lg:items-center'>
           <AvatarDemo />
-          <Subheading size='new' className='text-center lg:text-left mt-6'>
+          <Subheading size='default' className='text-center lg:text-center mt-6'>
             Full-Stack Software Engineer
           </Subheading>
           <Subheading size='sm' className='text-center lg:text-left'>
@@ -36,12 +37,14 @@ export default function Home() {
           </Paragraph>
         </div>
       </div>
-
+      <SeparatorDemo />
       <div className='flex flex-col justify-center items-center text-white mt-16 mb-6'>
         <LargeHeading size='sm' className='mb-8'>
           My Latest Projects
         </LargeHeading>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-6 bg-gray-100 rounded shadow-md text-gray-910 w-8 h-8 '>hello world</div>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-6 bg-gray-100 rounded shadow-md text-gray-910 w-8 h-8 '>
+          hello world
+        </div>
         <Link
           href='/projects'
           className='inline-flex items-center mt-8 text-gray-400 hover:text-white gap-4'

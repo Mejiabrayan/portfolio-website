@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import './globals.css';
 import { Nunito, Playfair_Display, Inter } from 'next/font/google';
 import { cn } from '@/lib/utils';
+import Sidebar from '@/components/SideBar';
 
 const playFair = Playfair_Display({ subsets: ['latin'] });
 const inter = Inter({ subsets: ['latin'] });
@@ -25,8 +26,8 @@ export default function RootLayout({
       )}
     >
       <body className='relative min-h-screen flex flex-col antialiased'>
-        <Header />
-        <div className="flex-grow flex justify-center items-center">
+     <Header/>
+        <div className='flex-grow flex justify-center items-center'>
           {children}
         </div>
       </body>
