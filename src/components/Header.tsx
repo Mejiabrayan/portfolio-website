@@ -69,7 +69,7 @@ const Header: FC<HeaderProps> = ({}) => {
         <nav
           className={`${
             isOpen ? 'block' : 'hidden'
-          } md:flex md:flex-row md:items-center md:justify-end md:px-8 py-4 md:py-6 w-full md:w-auto bg-white dark:bg-gray-900`}
+          } md:flex md:flex-row md:items-center md:justify-end md:px-8 py-4 md:py-6 w-full md:w-auto dark:bg-gray-900`}
         >
           {Object.entries(navItems).map(([path, { name }]) => {
             const isActive = path === pathname;

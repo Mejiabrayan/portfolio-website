@@ -1,18 +1,19 @@
 import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
 
-import { schemaTypes } from './sanity/schemas';
+import schemas from './sanity/schemas';
 
 export default defineConfig({
-  name: 'default',
-  title: 'sanity',
+  title: 'Portfolio',
 
   projectId: 'ghtgbwbi',
   dataset: 'production',
+  apiVersion: '2023-030-04',
 
   plugins: [deskTool()],
+  basePath: '/admin',
 
   schema: {
-    types: schemaTypes,
+    types: schemas,
   },
 });
