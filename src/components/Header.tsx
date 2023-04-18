@@ -33,7 +33,7 @@ const Header: FC<HeaderProps> = ({}) => {
     <header className='flex flex-col md:flex-row bg-white dark:bg-gray-900 shadow-md items-center justify-start'>
       <div className='flex justify-between items-center px-4 md:px-8 py-4 md:py-6 md:border-r border-gray-200 dark:border-gray-800'>
         <motion.a
-          className='text-xl md:text-2xl font-bold tracking-tight transition-colors duration-300 hover:text-gray-700 dark:hover:text-gray-300'
+          className='text-xl md:text-2xl font-bold tracking-tight transition-colors duration-300 hover:text-gray-700 dark:hover:text-gray-300 cursor-pointer'
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
@@ -69,7 +69,7 @@ const Header: FC<HeaderProps> = ({}) => {
         <nav
           className={`${
             isOpen ? 'block' : 'hidden'
-          } md:flex md:flex-row md:items-center md:justify-end md:px-8 py-4 md:py-6 w-full md:w-auto dark:bg-gray-900`}
+          } md:flex md:flex-row md:items-center md:justify-end md:px-8 py-4 md:py-6 w-full md:w-auto dark:bg-gray-900 cursor-pointer`}
         >
           {Object.entries(navItems).map(([path, { name }]) => {
             const isActive = path === pathname;

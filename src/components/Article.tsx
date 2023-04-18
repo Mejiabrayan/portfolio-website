@@ -13,18 +13,12 @@ const inter = Inter({ subsets: ['latin'] });
 const nunito = Nunito({ subsets: ['latin'] });
 const playFair = Playfair_Display({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
-    title: 'Article Title | Your Website Name',
-    description: 'Description of the article',
-  };
-  
-  export default function Article() {
-    return (
-      <div className='min-h-screen max-w-2xl flex items-center overflow-x-hidden bg-gray-910'>
-        <div className='container pt-30 px-6 min-h-full w-full mx-auto'>
-          {/* Add your article content here */}
-        </div>
+export default function Article() {
+  return (
+    <div className='min-h-screen max-w-2xl flex items-center overflow-x-hidden bg-gray-910'>
+      <div className='container pt-30 px-6 min-h-full w-full mx-auto'>
+        {/* Add your article content here */}
       </div>
-    );
-  }
-  
+    </div>
+  );
+}
