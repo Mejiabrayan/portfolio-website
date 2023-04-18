@@ -3,7 +3,6 @@ import LargeHeading from '@/components/ui/LargeHeading';
 import Paragraph from '@/components/ui/Paragraph';
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
-import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
 
 const page = async () => {
