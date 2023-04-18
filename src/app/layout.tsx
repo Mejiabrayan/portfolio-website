@@ -5,6 +5,7 @@ import './globals.css';
 import { Kaisei_Tokumin } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import Footer from '@/components/Footer';
+import { Metadata } from 'next';
 
 const kaisei = Kaisei_Tokumin({
   subsets: ['latin'],
