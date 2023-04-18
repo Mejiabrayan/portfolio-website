@@ -1,15 +1,10 @@
 import Image from 'next/image';
-import { Inter, Nunito, Playfair_Display } from 'next/font/google';
 import Link from 'next/link';
 import LargeHeading from '@/components/ui/LargeHeading';
 import { Metadata } from 'next';
 import Paragraph from '@/components/ui/Paragraph';
 
 import Subheading from '@/components/ui/SubHeading';
-
-const inter = Inter({ subsets: ['latin'] });
-const nunito = Nunito({ subsets: ['latin'] });
-const playFair = Playfair_Display({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Brayan Mejia Cuenca | Full-Stack Software Engineer',
@@ -18,9 +13,9 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className='min-h-screen max-w-2xl flex items-center overflow-x-hidden bg-gray-910'>
-      <div className='container pt-25 px-6 min-h-full w-full mx-auto'>
-        <div className='h-full gap-5 flex flex-col justify-center items-center lg:items-center'>
+    <div className='flex flex-col items-center justify-center min-h-screen'>
+      <div className='container pt-25 px-6 min-h-full max-w-2xl mx-auto'>
+        <div className='h-full gap-3 flex flex-col justify-center items-center lg:items-center'>
           <Image
             src='/avatar.jpg'
             alt='Picture of the author'
@@ -30,11 +25,14 @@ export default function Home() {
           />
           <Subheading
             size='default'
-            className='text-center lg:text-center mt-6'
+            className='text-center lg:text-center mt-0 tracking-tighter'
           >
             Full-Stack Software Engineer
           </Subheading>
-          <Subheading size='sm' className='text-center lg:text-left'>
+          <Subheading
+            size='sm'
+            className='text-center lg:text-left tracking-tight'
+          >
             Brayan Mejia Cuenca
           </Subheading>
           <div className='flex gap-4 mt-6'>
@@ -109,14 +107,13 @@ export default function Home() {
             </Link>
           </div>
           <div className='text-center flex flex-col gap-4 mt-0'>
-            <Paragraph className=' max-w-md lg:max-w-xl text-center lg:text-left mb-6 '>
-              I&apos;m passionate about building amazing UIs, animations, and
-              learning how to build better software.
+            <Paragraph className='tracking-tight flex-nowrap max-w-md lg:max-w-xl text-center lg:text-left mb-6 '>
+              I&apos;m passionate about technology, music and building things on
+              the web.
             </Paragraph>
           </div>
         </div>
       </div>
-      
     </div>
   );
 }
