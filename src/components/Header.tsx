@@ -37,7 +37,12 @@ const Header: FC<HeaderProps> = ({}) => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
-       <Image src='/BLogo.png' alt='Picture of the author' width={50} height={50} />
+          <Image
+            src='/B.png'
+            alt='Picture of the logo'
+            width={50}
+            height={50}
+          />
         </motion.a>
 
         <button
@@ -56,12 +61,22 @@ const Header: FC<HeaderProps> = ({}) => {
               clipRule='evenodd'
               d='M3 5h18v2H3V5zm0 6h18v2H3v-2zm18 6H3v2h18v-2z'
             />
-            <path
+
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='24'
+              height='24'
+              viewBox='0 0 24 24'
+              fill='none'
+              stroke='currentColor'
+              stroke-width='2'
+              stroke-linecap='round'
+              stroke-linejoin='round'
               className={isOpen ? 'block' : 'hidden'}
-              fillRule='evenodd'
-              clipRule='evenodd'
-              d='M4 6h16v12H4V6zm1 1v10h14V7H5z'
-            />
+            >
+              <line x1='18' x2='6' y1='6' y2='18'></line>
+              <line x1='6' x2='18' y1='6' y2='18'></line>
+            </svg>
           </svg>
         </button>
       </div>

@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: 'Brayan Mejia Cuenca',
     images: [
       {
-        url: 'https://raw.githubusercontent.com/Mejiabrayan/portfolio_2.0/main/public/avatar.jpg',
+        url: 'logo.svg',
         width: 1920,
         height: 1080,
       },

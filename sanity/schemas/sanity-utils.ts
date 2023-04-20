@@ -25,7 +25,12 @@ _createdAt,
 title,
 "slug": slug.current,
 "image": image.asset->url,
-content
+content,
+date,
+_type == "code" => {
+  "code": @.code,
+  "language": @.language
+}
     }`
   );
 }
@@ -36,11 +41,17 @@ export async function getBlog(slug: string): Promise<Blog> {
       _id,
       _createdAt,
       name,
+      author,
       title,
       "slug": slug.current,
       "image": image.asset->url,
       url,
-      content
+      content[],
+      date,
+      _type == "code" => {
+        "code": @.code,
+        "language": @.language
+      }
     }`,
     { slug }
   );
