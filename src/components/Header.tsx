@@ -13,7 +13,6 @@ const navItems = {
   },
   '/projects': {
     name: 'Projects',
-    
   },
   '/blogs': {
     name: 'Blogs',
@@ -30,7 +29,7 @@ const Header: FC<HeaderProps> = ({}) => {
   }
 
   return (
-    <header className='flex flex-col md:flex-row bg-white dark:bg-gray-900 shadow-md items-center justify-start'>
+    <header className='flex flex-col md:flex-row bg-gray-900 shadow-md items-center justify-start'>
       <div className='flex justify-between items-center px-4 md:px-8 py-4 md:py-6 md:border-r border-gray-200 dark:border-gray-800'>
         <motion.a
           className='text-xl md:text-2xl font-bold tracking-tight transition-colors duration-300 hover:text-gray-700 dark:hover:text-gray-300 cursor-pointer'
