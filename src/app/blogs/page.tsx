@@ -39,105 +39,22 @@ export default async function Blog() {
             </LargeHeading>
             <hr className='w-full border-gray-800 mt-10 mb-10' />
 
-            <div className='flex flex-col lg:flex-row justify-center gap-4'>
+            <div className='flex flex-col lg:flex-row justify-center gap-3'>
               {blog.map((blog) => (
-                <div key={blog._id} className='w-full lg:w-1/3'>
-                  <div className='rounded-lg overflow-hidden'>
-                    {blog.image && (
-                      <Image
-                        src={blog.image}
-                        alt={blog.title}
-                        width={400}
-                        height={250}
-                        className='object-cover'
-                      />
-                    )}
-                  </div>
-
-                  <Subheading size='sm' className='mt-2'>
+                <li key={blog._id} className='w-full lg:w-1/3 cursor-pointer'>
+                  <Subheading size='sm' className='my-2'>
                     {blog.title}
                   </Subheading>
-
-                  <Paragraph size='sm' className='mt-2'>
-                    In this post, I share my journey learning React and building
-                    web applications with it.
-                  </Paragraph>
 
                   <Link
                     href={`/blogs/${blog.slug}`}
                     className='btn'
                     {...buttonVariants}
                   >
-                    Read more
+                    Read
                   </Link>
-                </div>
+                </li>
               ))}
-            </div>
-          </div>
-        </div>
-
-        <div className='flex flex-col justify-center items-center gap-4'>
-          <LargeHeading size='sm' className='text-center lg:text-center mt-6'>
-            Recommended posts
-          </LargeHeading>
-
-          <div className='flex flex-col lg:flex-row justify-center gap-4'>
-            <div className='w-full lg:w-1/3'>
-              <div className='rounded-lg overflow-hidden'>
-                <Image
-                  src='/images/post4.jpg'
-                  alt='Picture of a mountain landscape'
-                  width={400}
-                  height={250}
-                  className='object-cover'
-                />
-              </div>
-
-              <Subheading size='sm' className='mt-2'>
-                Hiking in the mountains: a beginners guide
-              </Subheading>
-
-              <Paragraph size='sm' className='mt-2'>
-                In this post, I share some tips for beginners who want to start
-                hiking in the mountains.
-              </Paragraph>
-
-              <Link
-                href='/posts/mountain-hiking-guide'
-                className='btn'
-                {...buttonVariants}
-              >
-                Read more
-              </Link>
-            </div>
-
-            <div className='w-full lg:w-1/3'>
-              <div className='rounded-lg overflow-hidden'>
-                <Image
-                  src='/images/post5.jpg'
-                  alt='Picture of a person playing guitar'
-                  width={400}
-                  height={250}
-                  className='object-cover'
-                />
-              </div>
-
-              <Subheading size='sm' className='mt-2'>
-                Learning to play the guitar: a beginners guide
-              </Subheading>
-
-              <Paragraph size='sm' className='mt-2'>
-                In this post, I share some tips for beginners who want to learn
-                to play the guitar.
-              </Paragraph>
-
-              <Link
-                href='/posts/guitar-learning-guide'
-                className='btn'
-                {...buttonVariants}
-              >
-                Read more
-              </Link>
             </div>
           </div>
         </div>
