@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { FC, useState } from 'react';
 import { LayoutGroup, motion } from 'framer-motion';
+import Image from 'next/image';
 
 interface HeaderProps {}
 
@@ -36,7 +37,7 @@ const Header: FC<HeaderProps> = ({}) => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
-          Brayan
+       <Image src='/BLogo.png' alt='Picture of the author' width={50} height={50} />
         </motion.a>
 
         <button
