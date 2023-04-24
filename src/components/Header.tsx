@@ -31,11 +31,12 @@ const Header: FC<HeaderProps> = ({}) => {
 
   return (
     <header className='flex flex-col md:flex-row bg-gray-900 shadow-md items-center justify-start'>
-      <div className='flex justify-between items-center px-4 md:px-8 py-4 md:py-6 md:border-r border-gray-200 dark:border-gray-800'>
+      <div className='flex justify-between items-center px-4 md:px-8 py-4 md:py-6 md:border-r border-gray-800'>
         <motion.a
-          className='text-xl md:text-2xl font-bold tracking-tight transition-colors duration-300 hover:text-gray-700 dark:hover:text-gray-300 cursor-pointer'
+          className='text-xl md:text-2xl font-bold tracking-tight transition-colors duration-300 hover:text-gray-300 cursor-pointer'
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
+          href='/'
         >
           <Image
             src='/B.png'
@@ -69,9 +70,9 @@ const Header: FC<HeaderProps> = ({}) => {
               viewBox='0 0 24 24'
               fill='none'
               stroke='currentColor'
-              stroke-width='2'
-              stroke-linecap='round'
-              stroke-linejoin='round'
+              strokeWidth='2'
+              strokeLinecap='round'
+              strokeLinejoin='round'
               className={isOpen ? 'block' : 'hidden'}
             >
               <line x1='18' x2='6' y1='6' y2='18'></line>
@@ -93,7 +94,7 @@ const Header: FC<HeaderProps> = ({}) => {
                 key={path}
                 href={path}
                 className={clsx(
-                  'transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle',
+                  'transition-all hover:text-neutral-200 flex align-middle',
                   {
                     'text-neutral-500': !isActive,
                     'font-bold': isActive,
