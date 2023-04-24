@@ -1,15 +1,33 @@
-import Image from 'next/image';
 import { getBlog } from '../../../../sanity/schemas/sanity-utils';
 import LargeHeading from '@/components/ui/LargeHeading';
 import { PortableText } from '@portabletext/react';
 import Balancer from 'react-wrap-balancer';
 import Paragraph from '@/components/ui/Paragraph';
+import Link from 'next/link';
+import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import { Open_Sans } from 'next/font/google';
+
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  weight: ['400'],
+});
 
 type Props = {
   params: {
     blog: string;
   };
 };
+
+export async function generateMetadata({ params }: Props) {
+  const slug = params.blog;
+
+  const blog = await getBlog(slug);
+
+  return {
+    title: blog.title,
+  };
+}
 
 export default async function Blog({ params }: Props) {
   const slug = params.blog;
@@ -22,7 +40,7 @@ export default async function Blog({ params }: Props) {
   };
 
   return (
-    <section className='px-4 py-12 mx-auto max-w-screen-md  sm:bg-gray-910 sm:bg-opacity-70'>
+    <section className='px-4 py-12 mx-auto max-w-screen-md sm:bg-gray-910 sm:bg-opacity-50 text-center'>
       <div className='relative h-96 rounded-lg overflow-hidden shadow-md mb-8'>
         <Image
           src={blog.image}
@@ -32,23 +50,29 @@ export default async function Blog({ params }: Props) {
         />
       </div>
 
-      <LargeHeading size='new' className='mb-4'>
-        <Balancer className='text-center'>
-        {blog.title}
-        </Balancer>
-      </LargeHeading>
-
-      <div className='flex justify-between text-gray-400 text-sm mb-8'>
-        <div>by {blog.author}</div>
-        <div>{formatDate(blog.date)}</div>
+      <div className='text-center'>
+        <LargeHeading size='new'>{blog.title}</LargeHeading>
       </div>
 
-      <div className='prose max-w-none tracking-wide'>
+      <div className='flex flex-col items-center text-gray-400 text-sm my-8'>
+        <div className='text-center'>
+          <div>by {blog.author}</div>
+          <div>{formatDate(blog.date)}</div>
+        </div>
+      </div>
+
+      <div
+        className={cn(
+          'prose max-w-none tracking-wide',
+          openSans.className,
+          'text-center'
+        )}
+      >
         <PortableText value={blog.content} />
       </div>
 
       <Paragraph size='sm' className='text-center my-8'>
-        <a href='/blogs'>Back to Blog</a>
+        <Link href='/blogs'>Back to Blog</Link>
       </Paragraph>
     </section>
   );

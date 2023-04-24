@@ -13,7 +13,7 @@ const subheadingVariants = cva(
         new: 'text-xl md:text-xl lg:text-2xl',
       },
       textColor: {
-        default: 'text-gray-700 dark:text-gray-200',
+        default: 'text-gray-100',
         primary: 'text-indigo-500 dark:text-indigo-400',
         secondary: 'text-green-500 dark:text-green-400',
         accent: 'text-pink-500 dark:text-pink-400',

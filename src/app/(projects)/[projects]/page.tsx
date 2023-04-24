@@ -17,7 +17,7 @@ const page = async () => {
           >
             Featured Projects
           </LargeHeading>
-          <Paragraph className='mt-4 text-lg text-gray-700 dark:text-gray-200 text-center'>
+          <Paragraph className='mt-4 text-lg text-gray-200 text-center'>
             Here are projects I am activily working on.
             <br />
            Feel free to check out my other projects on my <Link  href='https://github.com/Mejiabrayan'>Github </Link>
@@ -36,6 +36,7 @@ const page = async () => {
                       alt={project.name}
                       width={750}
                       height={300}
+                      
                     />
                   )}
                 </div>
