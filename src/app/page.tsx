@@ -10,6 +10,7 @@ import { svgIcons } from '@/lib/icons';
 
 import { Open_Sans } from 'next/font/google';
 import { cn } from '@/lib/utils';
+import ParallaxBackground from '@/components/ParallaxBackground';
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -24,7 +25,9 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
+    
     <div className='flex flex-col items-center justify-center min-h-screen'>
+      
       <div className='container pt-25 px-6 min-h-full max-w-2xl mx-auto'>
         <div className='h-full gap-3 flex flex-col justify-center items-center lg:items-center'>
           <Image
@@ -77,7 +80,7 @@ export default function Home() {
           </div>
           <div className='text-center flex flex-col gap-4 mt-0'>
             <Paragraph className={cn(
-          'tracking-tight flex-nowrap max-w-md lg:max-w-xl text-center lg:text-left mb-6',
+          'tracking-tight flex-nowrap max-w-md lg:max-w-xl text-center mb-6',
           openSans.className,
         )}>
               {aboutMe()}
@@ -86,5 +89,6 @@ export default function Home() {
         </div>
       </div>
     </div>
+   
   );
 }
