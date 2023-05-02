@@ -11,5 +11,5 @@ export type Blog = {
     url: string;
     content: PortableTextBlock[];
     author:string;
-    code: Node[];
+    code: string;
 }

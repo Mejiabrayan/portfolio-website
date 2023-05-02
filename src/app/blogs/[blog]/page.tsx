@@ -13,6 +13,12 @@ const openSans = Open_Sans({
   weight: ['400'],
 });
 
+const CodeBlock = ({ children }) => (
+  <pre className='bg-gray-100 p-4 rounded-md overflow-auto'>
+    <code className='text-gray-800'>{children}</code>
+  </pre>
+);
+
 type Props = {
   params: {
     blog: string;
@@ -51,7 +57,7 @@ export default async function Blog({ params }: Props) {
       </div>
 
       <div className='text-center'>
-        <LargeHeading size='new'>{blog.title}</LargeHeading>
+        <LargeHeading size='new'><Balancer>{blog.title}</Balancer></LargeHeading>
       </div>
 
       <div className='flex flex-col items-center text-gray-400 text-sm my-8'>
@@ -68,12 +74,19 @@ export default async function Blog({ params }: Props) {
           'text-center'
         )}
       >
-        <PortableText value={blog.content} />
+        <PortableText
+          value={blog.content}
+          components={{
+            types: {
+              code: CodeBlock,
+            },
+          }}
+        />
       </div>
 
-      <Paragraph size='sm' className='text-center my-8'>
+      <div className='text-center my-8'>
         <Link href='/blogs'>Back to Blog</Link>
-      </Paragraph>
+      </div>
     </section>
   );
 }

@@ -3,19 +3,23 @@
 import { motion } from 'framer-motion';
 
 const LoadingAnimation = () => {
-    return (
+  return (
+    <div className='flex justify-center items-center h-screen'>
       <motion.div
-        className="grid place-items-center w-full h-full"
-        animate={{ rotate: [0, 360] }}
-        transition={{ duration: 2, loop: Infinity, ease: 'linear' }}
+        className='w-32 h-32 rounded-full bg-gray-900 flex justify-center items-center'
+        animate={{ rotate: 360 }}
+        transition={{ duration: 1.2, repeat: Infinity, ease: 'linear' }}
       >
-        <motion.div
-          className="w-24 h-24 bg-gray-100 rounded-full"
+        <motion.img
+          src='/B.png'
+          alt='Logo'
+          className='w-24 h-24'
           animate={{ scale: [1, 1.5, 1] }}
-          transition={{ duration: 1, loop: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 1, repeat: Infinity, ease: 'easeInOut' }}
         />
       </motion.div>
-    );
-  };
-  
-  export default LoadingAnimation;
+    </div>
+  );
+};
+
+export default LoadingAnimation;

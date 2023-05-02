@@ -10,8 +10,7 @@ export const title = () => {
 export const aboutMe = () => {
   return (
     <>
-      I&apos;m passionate about technology, music and building things on the
-      web.
+    Based in the Bay Area, I am passionate about technology and building things on the web.
     </>
   );
 };

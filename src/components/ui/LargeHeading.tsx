@@ -25,19 +25,21 @@ const headingVariants = cva(
         accent: 'text-pink-500 dark:text-pink-400',
       },
       align: {
-        default: 'text-center lg:text-left',
+        default: 'text-center',
         center: 'text-center',
-       
+      },
+      lineHeight: {
+        '99': 'leading-99',
       },
     },
     defaultVariants: {
       size: 'default',
       textColor: 'default',
       align: 'default',
+      lineHeight: '99',
     },
   }
 );
-
 
 interface LargeHeadingProps
   extends React.HTMLAttributes<HTMLHeadingElement>,
@@ -49,12 +51,15 @@ const LargeHeading: FC<LargeHeadingProps> = ({
   size,
   textColor,
   align,
+  lineHeight,
   ...props
 }) => {
   return (
     <h1
       {...props}
-      className={cn(headingVariants({ size, textColor, align, className }))}
+      className={cn(
+        headingVariants({ size, textColor, align, lineHeight, className })
+      )}
     >
       {children}
     </h1>
