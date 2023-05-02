@@ -34,7 +34,7 @@ const page = async () => {
               href={`/projects/${project.slug}`}
               className='group'
             >
-              <div className='bg-white shadow-md rounded-lg p-6 group-hover:bg-gray-50 transition-colors'>
+              <div className='bg-white shadow-md rounded-lg p-6 group-hover:bg-gray-50 transition-colors flex flex-col'>
                 <div className='relative h-40 w-full mb-4'>
                   {project.image && (
                     <Image

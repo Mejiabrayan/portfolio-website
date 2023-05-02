@@ -1,3 +1,5 @@
+import React from "react";
+
 export const name = 'Brayan Mejia Cuenca';
 export const avatar = '/avatar.jpg';
 
@@ -9,8 +11,8 @@ export const title = () => {
 
 export const aboutMe = () => {
   return (
-    <>
+    <React.Fragment>
     Based in the Bay Area, I am passionate about technology and building things on the web.
-    </>
+    </React.Fragment>
   );
 };

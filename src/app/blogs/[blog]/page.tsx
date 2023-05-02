@@ -13,11 +13,11 @@ const openSans = Open_Sans({
   weight: ['400'],
 });
 
-const CodeBlock = ({ children }) => (
-  <pre className='bg-gray-100 p-4 rounded-md overflow-auto'>
-    <code className='text-gray-800'>{children}</code>
-  </pre>
-);
+// const CodeBlock = ({ children }) => (
+//   <pre className='bg-gray-100 p-4 rounded-md overflow-auto'>
+//     <code className='text-gray-800'>{children}</code>
+//   </pre>
+// );
 
 type Props = {
   params: {
@@ -76,11 +76,11 @@ export default async function Blog({ params }: Props) {
       >
         <PortableText
           value={blog.content}
-          components={{
-            types: {
-              code: CodeBlock,
-            },
-          }}
+          // components={{
+          //   types: {
+          //     code: CodeBlock,
+          //   },
+          // }}
         />
       </div>
 

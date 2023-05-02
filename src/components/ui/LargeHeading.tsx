@@ -1,12 +1,8 @@
 import { FC } from 'react';
 import { cn } from '@/lib/utils';
 import { cva, VariantProps } from 'class-variance-authority';
-import { Kaisei_Tokumin } from 'next/font/google';
 
-const kaisei = Kaisei_Tokumin({
-  subsets: ['latin'],
-  weight: ['700'],
-});
+
 
 const headingVariants = cva(
   'text-black dark:text-white font-extrabold leading-tight tracking-tighter',
