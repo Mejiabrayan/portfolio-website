@@ -3,20 +3,16 @@ import Link from 'next/link';
 import LargeHeading from '@/components/ui/LargeHeading';
 import { Metadata } from 'next';
 import Paragraph from '@/components/ui/Paragraph';
-
 import Subheading from '@/components/ui/SubHeading';
 import { aboutMe, name, title } from '@/lib/info';
 import { svgIcons } from '@/lib/icons';
-
 import { Open_Sans } from 'next/font/google';
 import { cn } from '@/lib/utils';
-import ParallaxBackground from '@/components/ParallaxBackground';
 
 const openSans = Open_Sans({
   subsets: ['latin'],
   weight: ['400'],
 });
-
 
 export const metadata: Metadata = {
   title: 'Brayan Mejia Cuenca | Full-Stack Software Engineer',
@@ -25,11 +21,9 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    
     <div className='flex flex-col items-center justify-center min-h-screen'>
-      
-      <div className='container pt-25 px-6 min-h-full max-w-2xl mx-auto'>
-        <div className='h-full gap-3 flex flex-col justify-center items-center lg:items-center'>
+      <div className='container px-4 mx-auto'>
+        <div className='h-full gap-6 flex flex-col justify-center items-center lg:items-center'>
           <Image
             src='/avatar.jpg'
             alt='Picture of the author'
@@ -38,8 +32,8 @@ export default function Home() {
             className='rounded-full filter grayscale'
           />
           <LargeHeading
-            size='sm'
-            className='text-center lg:text-center mt-0 tracking-tighter'
+            size='lg'
+            className='text-center lg:text-center mt-4 tracking-tighter'
           >
             {title()}
           </LargeHeading>
@@ -54,41 +48,78 @@ export default function Home() {
               href='https://github.com/Mejiabrayan'
               target='_blank'
               rel='noopener noreferrer'
+              className='w-6 h-6 text-gray-400 hover:text-white transition-colors duration-300 ease-in-out'
             >
-              <div className='w-6 h-6 text-gray-400 hover:text-white transition-colors duration-300 ease-in-out'>
-                {svgIcons.github}
-              </div>
+              {svgIcons.github}
             </Link>
             <Link
               href='https://www.linkedin.com/in/brayan-mejia/'
               target='_blank'
               rel='noopener noreferrer'
+              className='w-6 h-6 text-gray-400 hover:text-white transition-colors duration-300 ease-in-out'
             >
-              <div className='w-6 h-6 text-gray-400 hover:text-white transition-colors duration-300 ease-in-out'>
-                {svgIcons.linkedin}
-              </div>
+              {svgIcons.linkedin}
             </Link>
             <Link
               href='https://twitter.com/CyperpunkDev'
               target='_blank'
               rel='noopener noreferrer'
+              className='w-6 h-6 text-gray-400 hover:text-white transition-colors duration-300 ease-in-out'
             >
-              <div className='w-6 h-6 text-gray-400 hover:text-white transition-colors duration-300 ease-in-out'>
-                {svgIcons.twitter}
-              </div>
+              {svgIcons.twitter}
             </Link>
           </div>
-          <div className='text-center flex flex-col gap-4 mt-0'>
-            <Paragraph className={cn(
-          'tracking-tight flex-nowrap max-w-md lg:max-w-xl text-center mb-6',
-          openSans.className,
-        )}>
+          <div className='text-center flex flex-col gap-4 mt-4'>
+            <Paragraph
+              className={cn(
+                'leading-tight max-w-md lg:max-w-xl text-center mb-6 flex-nowrap',
+                openSans.className
+              )}
+            >
               {aboutMe()}
             </Paragraph>
           </div>
+          {/* <div className='flex flex-col items-center justify-center mt-8'>
+            <h2 className='text-2xl font-bold mb-4'>My Projects</h2>
+            <div className='flex flex-wrap justify-center gap-4'>
+              <div className='bg-white rounded-lg shadow-md p-4 max-w-xs'>
+                <h3 className='text-lg font-semibold mb-2'>Project 1</h3>
+                <p className='text-gray-100'>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+                  ut leo eget odio vestibulum feugiat.
+                </p>
+                <a
+             
+                  href='#'
+                  className='text-blue-600 hover:underline mt-2'
+                >
+                  View Project
+                </a>
+              </div>
+              <div className='bg-white rounded-lg shadow-md p-4 max-w-xs'>
+                <h3 className='text-lg font-semibold mb-2'>Project 2</h3>
+                <p className='text-gray-600'>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+                  ut leo eget odio vestibulum feugiat.
+                </p>
+                <a href='#' className='text-blue-600 hover:underline mt-2'>
+                  View Project
+                </a>
+              </div>
+              <div className='bg-white rounded-lg shadow-md p-4 max-w-xs'>
+                <h3 className='text-lg font-semibold mb-2'>Project 3</h3>
+                <p className='text-gray-600'>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+                  ut leo eget odio vestibulum feugiat.
+                </p>
+                <a href='#' className='text-blue-600 hover:underline mt-2'>
+                  View Project
+                </a>
+              </div>
+            </div>
+          </div> */}
         </div>
       </div>
     </div>
-   
   );
 }
