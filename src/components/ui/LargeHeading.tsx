@@ -2,17 +2,15 @@ import { FC } from 'react';
 import { cn } from '@/lib/utils';
 import { cva, VariantProps } from 'class-variance-authority';
 
-
-
 const headingVariants = cva(
-  'text-black dark:text-white font-extrabold leading-tight tracking-tighter',
+  'text-gray-100 font-extrabold leading-tight tracking-tighter',
   {
     variants: {
       size: {
         default: 'text-gray-100',
         lg: 'text-5xl md:text-6xl lg:text-7xl',
         sm: 'text-2xl md:text-3xl lg:text-4xl',
-        new: 'text-3xl md:text-3xl lg:text-4xl',
+        new: 'text-3xl md:text-3xl lg:text-4xl font-bold',
       },
       textColor: {
         default: 'text-gray-100',
@@ -37,26 +35,18 @@ const headingVariants = cva(
   }
 );
 
-interface LargeHeadingProps
-  extends React.HTMLAttributes<HTMLHeadingElement>,
-    VariantProps<typeof headingVariants> {}
+interface LargeHeadingProps extends VariantProps<typeof headingVariants> {
+  children: React.ReactNode;
+  className?: string;
+}
 
 const LargeHeading: FC<LargeHeadingProps> = ({
   children,
   className,
-  size,
-  textColor,
-  align,
-  lineHeight,
   ...props
 }) => {
   return (
-    <h1
-      {...props}
-      className={cn(
-        headingVariants({ size, textColor, align, lineHeight, className })
-      )}
-    >
+    <h1 {...props} className={cn(headingVariants(props), className)}>
       {children}
     </h1>
   );
