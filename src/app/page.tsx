@@ -35,11 +35,14 @@ export default function Home() {
             size='lg'
             className='text-center lg:text-center mt-4 tracking-tighter'
           >
-            {title()}
+            <span className='bg-gradient-to-r from-gray-400 to-white text-transparent bg-clip-text'>
+              {title()}
+            </span>
           </LargeHeading>
+
           <Subheading
             size='sm'
-            className='text-center lg:text-left tracking-tight'
+            className='text-center lg:text-left tracking-tight font-semibold'
           >
             {name}
           </Subheading>
@@ -79,45 +82,6 @@ export default function Home() {
               {aboutMe()}
             </Paragraph>
           </div>
-          {/* <div className='flex flex-col items-center justify-center mt-8'>
-            <h2 className='text-2xl font-bold mb-4'>My Projects</h2>
-            <div className='flex flex-wrap justify-center gap-4'>
-              <div className='bg-white rounded-lg shadow-md p-4 max-w-xs'>
-                <h3 className='text-lg font-semibold mb-2'>Project 1</h3>
-                <p className='text-gray-100'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-                  ut leo eget odio vestibulum feugiat.
-                </p>
-                <a
-             
-                  href='#'
-                  className='text-blue-600 hover:underline mt-2'
-                >
-                  View Project
-                </a>
-              </div>
-              <div className='bg-white rounded-lg shadow-md p-4 max-w-xs'>
-                <h3 className='text-lg font-semibold mb-2'>Project 2</h3>
-                <p className='text-gray-600'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-                  ut leo eget odio vestibulum feugiat.
-                </p>
-                <a href='#' className='text-blue-600 hover:underline mt-2'>
-                  View Project
-                </a>
-              </div>
-              <div className='bg-white rounded-lg shadow-md p-4 max-w-xs'>
-                <h3 className='text-lg font-semibold mb-2'>Project 3</h3>
-                <p className='text-gray-600'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-                  ut leo eget odio vestibulum feugiat.
-                </p>
-                <a href='#' className='text-blue-600 hover:underline mt-2'>
-                  View Project
-                </a>
-              </div>
-            </div>
-          </div> */}
         </div>
       </div>
     </div>
