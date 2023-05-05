@@ -71,8 +71,8 @@ export default function RootLayout({
       )}
     >
       <body className='flex flex-col min-h-screen antialiased'>
-        <Suspense fallback={<Loading />}>
           <Header />
+        <Suspense fallback={<Loading />}>
           <ParallaxLayout>
             <main className='flex-grow flex flex-col justify-center items-center'>
               {children}

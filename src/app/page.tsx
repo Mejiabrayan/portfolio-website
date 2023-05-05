@@ -35,14 +35,14 @@ export default function Home() {
             size='lg'
             className='text-center lg:text-center mt-4 tracking-tighter'
           >
-            <span className='bg-gradient-to-r from-gray-400 to-white text-transparent bg-clip-text'>
+            <span className='bg-gradient-to-r from-gray-400 to-white text-transparent bg-clip-text px-2 max-w-auto'>
               {title()}
             </span>
           </LargeHeading>
 
           <Subheading
             size='sm'
-            className='text-center lg:text-left tracking-tight font-semibold'
+            className='text-center lg:text-left tracking-tight font-sem'
           >
             {name}
           </Subheading>

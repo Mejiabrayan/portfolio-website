@@ -30,8 +30,8 @@ const Header: FC<HeaderProps> = ({}) => {
   }
 
   return (
-    <header className='flex flex-col md:flex-row bg-gray-900 shadow-md items-center justify-start '>
-      <div className='flex justify-between items-center px-4 md:px-8 py-4 md:py-6 md:border-r border-gray-800'>
+    <header className=' flex flex-col md:flex-row bg-gray-900 shadow-md items-center justify-start '>
+      <div className='flex justify-between items-center px-4 md:px-8  md:py-6 md:border-r border-gray-800'>
         <motion.a
           className='text-xl md:text-2xl font-bold tracking-tight transition-colors duration-300 hover:text-gray-300 cursor-pointer'
           whileHover={{ scale: 1.1 }}
@@ -50,7 +50,7 @@ const Header: FC<HeaderProps> = ({}) => {
           className='md:hidden text-3xl text-gray-600 dark:text-gray-400 focus:outline-none'
           onClick={() => setIsOpen(!isOpen)}
         >
-          <span >Open menu</span>
+          <span>Open menu</span>
           <svg
             className='w-8 h-8 fill-current'
             viewBox='0 0 24 24'
@@ -85,7 +85,7 @@ const Header: FC<HeaderProps> = ({}) => {
         <nav
           className={`${
             isOpen ? 'block' : 'hidden'
-          } md:flex md:flex-row md:items-center md:justify-end md:px-8 py-4 md:py-6 w-full md:w-auto dark:bg-gray-900 cursor-pointer`}
+          } md:flex md:flex-row md:items-center md:justify-end md:px-8 py-4 md:py-6 w-full md:w-auto bg-gray-900 cursor-pointer`}
         >
           {Object.entries(navItems).map(([path, { name }]) => {
             const isActive = path === pathname;
@@ -96,7 +96,7 @@ const Header: FC<HeaderProps> = ({}) => {
                 className={clsx(
                   'transition-all hover:text-neutral-200 flex align-middle',
                   {
-                    'text-neutral-500': !isActive,
+                    'text-neutral-400': !isActive,
                     'font-bold': isActive,
                   }
                 )}
@@ -105,7 +105,7 @@ const Header: FC<HeaderProps> = ({}) => {
                   {name}
                   {path === pathname ? (
                     <motion.div
-                      className='absolute inset-0 bg-neutral-100 dark:bg-neutral-800 rounded-md z-[-1]'
+                      className='absolute inset-0 bg-neutral-100 bg-neutral-800 rounded-md z-[-1]'
                       layoutId='sidebar'
                       transition={{
                         type: 'spring',
