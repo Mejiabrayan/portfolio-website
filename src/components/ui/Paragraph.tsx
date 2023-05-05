@@ -3,7 +3,7 @@ import { VariantProps, cva } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
 
-export const paragraphVariants = cva(' text-slate-100 mb-4 leading-relaxed', {
+export const paragraphVariants = cva(' text-center text-slate-100 mb-4 leading-tight', {
   variants: {
     size: {
       default: ' text-center sm:text-lg ',
