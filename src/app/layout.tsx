@@ -4,8 +4,9 @@ import Loading from './loading';
 import './globals.css';
 import { Kaisei_Tokumin } from 'next/font/google';
 import { cn } from '@/lib/utils';
-import Footer from '@/components/Footer';
+
 import { Metadata } from 'next';
+import ParallaxLayout from '@/components/parallaxLayout';
 
 const kaisei = Kaisei_Tokumin({
   subsets: ['latin'],
@@ -65,17 +66,18 @@ export default function RootLayout({
     <html
       lang='en'
       className={cn(
-        'bg-gradient-to-bl from-gray-910 via-gray-910 to-yellow-50 text-gray-100 antialiased bg-contain',
+        'bg-gradient-to-bl from-gray-910 via-gray-910 to-yellow-50 text-gray-100 antialiased py-5',
         kaisei.className
       )}
     >
-      <body className='relative min-h-screen flex flex-col antialiased'>
+      <body className='flex flex-col min-h-screen antialiased'>
         <Suspense fallback={<Loading />}>
           <Header />
-          <div className='flex-grow flex flex-col justify-center items-center'>
-            {children}
-          </div>
-          <Footer />
+          <ParallaxLayout>
+            <main className='flex-grow flex flex-col justify-center items-center'>
+              {children}
+            </main>
+          </ParallaxLayout>
         </Suspense>
       </body>
     </html>
