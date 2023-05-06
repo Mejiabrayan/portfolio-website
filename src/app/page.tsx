@@ -33,16 +33,16 @@ export default function Home() {
           />
           <LargeHeading
             size='lg'
-            className='text-center lg:text-center mt-4 tracking-tighter'
+            className='text-center lg:text-center mt-4 tracking-tighter '
           >
-            <span className='bg-gradient-to-r from-gray-400 to-white text-transparent bg-clip-text px-2 max-w-auto'>
+            <span className='bg-gradient-to-r from-gray-400 to-white text-transparent bg-clip-text px-4 max-w-auto'>
               {title()}
             </span>
           </LargeHeading>
 
           <Subheading
             size='sm'
-            className='text-center lg:text-left tracking-tight font-sem'
+            className='text-center lg:text-left tracking-tight font-semibold'
           >
             {name}
           </Subheading>

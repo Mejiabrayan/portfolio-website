@@ -2,15 +2,17 @@ import React, { Suspense } from 'react';
 import Header from '@/components/Header';
 import Loading from './loading';
 import './globals.css';
-import { Kaisei_Tokumin } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import { cn } from '@/lib/utils';
+import { Analytics } from '@vercel/analytics/react';
 
 import { Metadata } from 'next';
 import ParallaxLayout from '@/components/parallaxLayout';
+import MobileMenu from '@/components/MobileMenu';
 
-const kaisei = Kaisei_Tokumin({
+const inter = Inter({
   subsets: ['latin'],
-  weight: ['700'],
+  weight: ['400', '700'],
 });
 
 export const metadata: Metadata = {
@@ -67,16 +69,21 @@ export default function RootLayout({
       lang='en'
       className={cn(
         'bg-gradient-to-bl from-gray-910 via-gray-910 to-yellow-50 text-gray-100 antialiased py-5',
-        kaisei.className
+        inter.className
       )}
     >
       <body className='flex flex-col min-h-screen antialiased'>
-          <Header />
+        <Header />
         <Suspense fallback={<Loading />}>
           <ParallaxLayout>
             <main className='flex-grow flex flex-col justify-center items-center'>
               {children}
+
+        <Analytics />
             </main>
+            <MobileMenu />
+             {/* Allow more height for mobile menu on mobile */}
+        <div className='h-40 md:hidden' />
           </ParallaxLayout>
         </Suspense>
       </body>
