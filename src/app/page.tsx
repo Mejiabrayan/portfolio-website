@@ -8,6 +8,7 @@ import { aboutMe, name, title } from '@/lib/info';
 import { svgIcons } from '@/lib/icons';
 import { Open_Sans } from 'next/font/google';
 import { cn } from '@/lib/utils';
+import avatar from '@/app/avatar.jpg';
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -25,11 +26,12 @@ export default function Home() {
       <div className='container px-4 mx-auto'>
         <div className='h-full gap-6 flex flex-col justify-center items-center lg:items-center'>
           <Image
-            src='/avatar.jpg'
+            src={avatar}
             alt='Picture of the author'
             width={100}
             height={100}
             className='rounded-full filter grayscale'
+            placeholder='blur'
           />
           <LargeHeading
             size='lg'
@@ -72,6 +74,7 @@ export default function Home() {
               {svgIcons.twitter}
             </Link>
           </div>
+        {/* <DockMenu /> */}
           <div className='text-center flex flex-col gap-4 mt-4'>
             <Paragraph
               className={cn(
