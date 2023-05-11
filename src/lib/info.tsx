@@ -1,8 +1,11 @@
-import Paragraph from '@/components/ui/Paragraph';
 import React from 'react';
+import me from '../app/avatar.jpg';
+import logo from '../app/B.png'
 
 export const name = 'Brayan Mejia Cuenca';
-export const avatar = '/avatar.jpg';
+export const avatar = me;
+export const Logo = logo;
+
 
 export const title = () => {
   return (
