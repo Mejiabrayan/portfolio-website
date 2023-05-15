@@ -9,6 +9,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { Metadata } from 'next';
 import ParallaxLayout from '@/components/parallaxLayout';
 import MobileMenu from '@/components/MobileMenu';
+import { Menubar } from '@/components/ui/menubar';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -67,23 +68,17 @@ export default function RootLayout({
   return (
     <html
       lang='en'
-      className={cn(
-        'bg-gradient-to-bl from-gray-910 via-gray-910 to-yellow-50 text-gray-100 antialiased py-5',
-        inter.className
-      )}
+      className={cn('text-gray-100 antialiased ', inter.className)}
     >
-      <body className='flex flex-col min-h-screen antialiased'>
+      <body className='flex flex-col min-h-full antialiased'>
         <Header />
         <Suspense fallback={<Loading />}>
           <ParallaxLayout>
             <main className='flex-grow flex flex-col justify-center items-center'>
               {children}
 
-        <Analytics />
+              <Analytics />
             </main>
-            <MobileMenu />
-             {/* Allow more height for mobile menu on mobile */}
-        <div className='h-40 md:hidden' />
           </ParallaxLayout>
         </Suspense>
       </body>
