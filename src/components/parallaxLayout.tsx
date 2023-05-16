@@ -20,7 +20,7 @@ export default function ParallaxLayout({ children }: Props) {
       <motion.div
         ref={ref}
         style={{ y }}
-        className='absolute inset-0 w-full -z-10 max-h-[1800px] scroll-smooth"'
+        className='absolute inset-0 w-full -z-10 max-h-[1800px] sm:max-h-[800px] scroll-smooth'
       >
         <div className='bg-gradient-to-bl from-gray-910 via-gray-910 to-yellow-50 h-full w-full px-4 py-16 sm:px-8 sm:py-32 lg:py-48' />
       </motion.div>
