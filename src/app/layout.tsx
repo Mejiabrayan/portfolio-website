@@ -2,20 +2,23 @@ import React, { Suspense } from 'react';
 import Header from '@/components/Header';
 import Loading from './loading';
 import './globals.css';
-import { Inter } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import { Analytics } from '@vercel/analytics/react';
+import { Inter as FontSans } from 'next/font/google';
+import localFont from 'next/font/local';
 
 import { Metadata } from 'next';
 import ParallaxLayout from '@/components/parallaxLayout';
-import MobileMenu from '@/components/MobileMenu';
-import { Menubar } from '@/components/ui/menubar';
-
-const inter = Inter({
+const fontSans = FontSans({
   subsets: ['latin'],
-  weight: ['400', '700'],
+  variable: '--font-sans',
 });
 
+// Font files can be colocated inside of `pages`
+const fontHeading = localFont({
+  src: '../../assets/fonts/CalSans-SemiBold.woff2',
+  variable: '--font-heading',
+});
 export const metadata: Metadata = {
   title: {
     default: 'Brayan Mejia Cuenca Portfolio | Home',
@@ -68,7 +71,11 @@ export default function RootLayout({
   return (
     <html
       lang='en'
-      className={cn('text-gray-100 antialiased ', inter.className)}
+      className={cn(
+        'text-gray-100 antialiased ',
+        fontSans.variable,
+        fontHeading.variable
+      )}
     >
       <body className='flex flex-col min-h-full antialiased'>
         <Header />
