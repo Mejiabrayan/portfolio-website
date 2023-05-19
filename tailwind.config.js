@@ -1,3 +1,5 @@
+const { fontFamily } = require("tailwindcss/defaultTheme")
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -31,6 +33,10 @@ module.exports = {
           'gradient-mid': '#100C0B',
           'gradient-end': '#9B8074',
         },
+      },
+        fontFamily: {
+        sans: ["var(--font-sans)", ...fontFamily.sans],
+        heading: ["var(--font-heading)", ...fontFamily.sans],
       },
     },
 
