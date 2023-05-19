@@ -45,7 +45,7 @@ export default function Home() {
 
           <Subheading
             size='sm'
-            className='text-center lg:text-left tracking-tight font-semibold'
+            className='text-center lg:text-left tracking-normal font-semibold'
           >
             {name}
           </Subheading>
@@ -75,11 +75,10 @@ export default function Home() {
               {svgIcons.twitter}
             </Link>
           </div>
-          {/* <DockMenu /> */}
           <div className='text-center flex flex-col gap-4 mt-4'>
             <Paragraph
               className={cn(
-                'leading-tight max-w-md lg:max-w-xl text-center mb-6 flex-nowrap',
+                'leading-tight font-semibold max-w-md lg:max-w-xl text-center mb-6 flex-nowrap',
                 openSans.className
               )}
             >
