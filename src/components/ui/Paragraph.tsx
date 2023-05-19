@@ -3,24 +3,30 @@ import { VariantProps, cva } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
 
-export const paragraphVariants = cva(' text-center text-slate-100 mb-4 leading-tight', {
+export const paragraphVariants = cva('font-sans text-center text-slate-100 mb-4 leading-tight', {
   variants: {
     size: {
-      default: ' text-center sm:text-lg ',
-      sm: 'text-sm sm:text-base',
-      lg: 'text-xl sm:text-2xl',
+      default: 'text-base md:text-lg',
+      sm: 'text-sm md:text-base',
+      lg: 'text-lg md:text-xl',
     },
     align: {
       default: 'text-center',
       center: 'text-center',
     },
+    lineHeight: {
+      default: 'leading-tight',
+      tight: 'leading-tight',
+      loose: 'leading-loose',
+    },
   },
   defaultVariants: {
     size: 'default',
     align: 'default',
+    lineHeight: 'default',
   },
-});
-
+}
+);
 interface ParagraphProps
   extends React.HTMLAttributes<HTMLParagraphElement>,
     VariantProps<typeof paragraphVariants> {}
