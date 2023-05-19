@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Logo from '../../app/B.png'
 
 const LoadingAnimation = () => {
   return (
@@ -11,7 +12,7 @@ const LoadingAnimation = () => {
         transition={{ duration: 1.2, repeat: Infinity, ease: 'linear' }}
       >
         <motion.img
-          src='/B.png'
+          src='Logo'
           alt='Logo'
           className='w-24 h-24'
           animate={{ scale: [1, 1.5, 1] }}

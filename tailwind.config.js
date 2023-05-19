@@ -33,6 +33,12 @@ module.exports = {
           'gradient-mid': '#100C0B',
           'gradient-end': '#9B8074',
         },
+        mustard: {
+          100: '#d1f229',
+          200: '#cde11f',
+          300: '#c9d015',
+          400: '#c5c90b',
+        }
       },
         fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],

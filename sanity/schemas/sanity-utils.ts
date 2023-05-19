@@ -14,7 +14,8 @@ export async function getProjects(): Promise<Project[]> {
       "image": image.asset->url,
       url,
       content
-    }`
+    } | order(index desc)
+    `
   );
 }
 
@@ -27,10 +28,10 @@ export async function getProject(slug: string): Promise<Project> {
       "slug": slug.current,
       "image": image.asset->url,
       url,
-      content
+      content,
     }`,
     { slug }
-  )
+  );
 }
 
 export async function getBlogs(): Promise<Blog[]> {
@@ -51,8 +52,6 @@ _type == "code" => {
   );
 }
 
-
-
 export async function getBlog(slug: string): Promise<Blog> {
   return createClient(clientConfig).fetch(
     groq`*[_type == "blog" && slug.current == $slug][0]{
@@ -72,6 +71,5 @@ export async function getBlog(slug: string): Promise<Blog> {
       }
     }`,
     { slug }
-    
-  )
+  );
 }

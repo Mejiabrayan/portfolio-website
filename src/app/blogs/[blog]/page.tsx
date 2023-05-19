@@ -57,7 +57,7 @@ export default async function Blog({ params }: Props) {
       </div>
 
       <div className='text-center'>
-        <LargeHeading size='new'><Balancer>{blog.title}</Balancer></LargeHeading>
+        <LargeHeading size='md'><Balancer>{blog.title}</Balancer></LargeHeading>
       </div>
 
       <div className='flex flex-col items-center text-gray-400 text-sm my-8'>

@@ -6,14 +6,9 @@ import Paragraph from '@/components/ui/Paragraph';
 import Subheading from '@/components/ui/SubHeading';
 import { aboutMe, name, title } from '@/lib/info';
 import { svgIcons } from '@/lib/icons';
-import { Open_Sans } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import avatar from '@/app/avatar.jpg';
-
-const openSans = Open_Sans({
-  subsets: ['latin'],
-  weight: ['400'],
-});
+import { Featured } from '@/components/Featured';
 
 export const metadata: Metadata = {
   title: 'Brayan Mejia Cuenca | Full-Stack Software Engineer',
@@ -22,8 +17,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <section className='relative flex flex-col items-center justify-center min-h-screen'>
-      
+    <section className='relative mt-8 flex flex-col items-center justify-center min-h-screen'>
       <div className='container flex max-w-[58rem] flex-col'>
         <div className='h-full gap-6 flex flex-col justify-center items-center lg:items-center'>
           <Image
@@ -45,7 +39,7 @@ export default function Home() {
 
           <Subheading
             size='sm'
-            className='text-center lg:text-left tracking-normal font-semibold'
+            className='text-center lg:text-left tracking-normal text-zinc-400'
           >
             {name}
           </Subheading>
@@ -78,8 +72,7 @@ export default function Home() {
           <div className='text-center flex flex-col gap-4 mt-4'>
             <Paragraph
               className={cn(
-                'leading-tight font-semibold max-w-md lg:max-w-xl text-center mb-6 flex-nowrap',
-                openSans.className
+                'leading-tight font-semibold max-w-md lg:max-w-xl text-center mb-6 flex-nowrap'
               )}
             >
               {aboutMe()}
@@ -87,6 +80,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <Featured />
     </section>
   );
 }

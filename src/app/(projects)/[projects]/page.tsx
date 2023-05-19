@@ -6,13 +6,14 @@ import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+export const revalidate = 60; // revalidate this page every 60 seconds
 const page = async () => {
   const projects = await getProjects();
   return (
     <>
       <section className='max-w-6xl mx-auto py-16'>
         <div className='text-center'>
-          <LargeHeading size='sm'>Featured Projects</LargeHeading>
+          <LargeHeading size='lg'>Featured Projects</LargeHeading>
           <div className='mt-4 text-center'>
             <Paragraph>
               Here are projects I am actively working on. Feel free to check out
@@ -49,7 +50,7 @@ const page = async () => {
                   {project.name}
                 </h3>
                 <div className='text-gray-500 text-sm'>
-                  <PortableText value={project.content} />
+                  <PortableText value={project.content}  />
                 </div>
               </div>
             </Link>
