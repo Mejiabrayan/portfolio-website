@@ -22,8 +22,9 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className='flex flex-col items-center justify-center min-h-screen'>
-      <div className='container px-4 mx-auto'>
+    <section className='relative flex flex-col items-center justify-center min-h-screen'>
+      
+      <div className='container flex max-w-[58rem] flex-col'>
         <div className='h-full gap-6 flex flex-col justify-center items-center lg:items-center'>
           <Image
             src={avatar}
@@ -35,9 +36,9 @@ export default function Home() {
           />
           <LargeHeading
             size='lg'
-            className='text-center lg:text-center mt-4 tracking-tighter '
+            className='font-extrabold text-center lg:text-center mt-4 tracking-tighter'
           >
-            <span className='bg-gradient-to-r from-gray-400 to-white text-transparent bg-clip-text px-4 max-w-auto'>
+            <span className='pb-4 text-transparent bg-clip-text bg-gradient-to-r from-zinc-200/60 via-zinc-200 to-zinc-200/60'>
               {title()}
             </span>
           </LargeHeading>
@@ -74,7 +75,7 @@ export default function Home() {
               {svgIcons.twitter}
             </Link>
           </div>
-        {/* <DockMenu /> */}
+          {/* <DockMenu /> */}
           <div className='text-center flex flex-col gap-4 mt-4'>
             <Paragraph
               className={cn(
@@ -87,6 +88,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
