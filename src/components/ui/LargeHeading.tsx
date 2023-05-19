@@ -3,34 +3,34 @@ import { cn } from '@/lib/utils';
 import { cva, VariantProps } from 'class-variance-authority';
 
 const headingVariants = cva(
-  'text-gray-100 font-extrabold leading-tight tracking-tighter',
+  'font-heading text-gray-100 font-extrabold',
   {
     variants: {
       size: {
-        default: 'text-gray-100',
+        default: 'text-4xl md:text-5xl lg:text-6xl',
         lg: 'text-5xl md:text-6xl lg:text-7xl',
         sm: 'text-2xl md:text-3xl lg:text-4xl',
-        new: 'text-3xl md:text-3xl lg:text-4xl font-bold',
+        md: 'text-3xl md:text-3xl lg:text-4xl',
       },
       textColor: {
         default: 'text-gray-100',
-        primary: 'text-indigo-500 dark:text-indigo-400',
-        secondary: 'text-green-500 dark:text-green-400',
-        accent: 'text-pink-500 dark:text-pink-400',
       },
       align: {
         default: 'text-center',
         center: 'text-center',
       },
       lineHeight: {
-        '99': 'leading-99',
+        'normal': 'leading-normal',
+        'tight': 'leading-tight',
+        'loose': 'leading-loose',
+        'extra-loose': 'leading-loose', // Add a new line height variant
       },
     },
     defaultVariants: {
       size: 'default',
       textColor: 'default',
       align: 'default',
-      lineHeight: '99',
+      lineHeight: 'normal',
     },
   }
 );
