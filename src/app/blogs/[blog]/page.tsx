@@ -2,11 +2,11 @@ import { getBlog } from '../../../../sanity/schemas/sanity-utils';
 import LargeHeading from '@/components/ui/LargeHeading';
 import { PortableText } from '@portabletext/react';
 import Balancer from 'react-wrap-balancer';
-import Paragraph from '@/components/ui/Paragraph';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { Open_Sans } from 'next/font/google';
+import { typewriter } from '@/lib/staticImages';
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -49,10 +49,11 @@ export default async function Blog({ params }: Props) {
     <section className='px-4 py-12 mx-auto max-w-screen-md sm:bg-gray-910 sm:bg-opacity-50 text-center'>
       <div className='relative h-96 rounded-lg overflow-hidden shadow-md mb-8'>
         <Image
-          src={blog.image}
+          src={typewriter}
           alt={blog.title}
           layout='fill'
           objectFit='cover'
+          placeholder='blur'
         />
       </div>
 

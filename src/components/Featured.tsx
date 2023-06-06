@@ -1,47 +1,27 @@
 import Image from 'next/image';
-import {
-  AlertTriangle,
-  GitMerge,
-  LayoutDashboard,
-  Settings,
-  Lock,
-  CodeIcon,
-  Bot
-} from 'lucide-react';
 
-export const Featured: React.FC = () => {
-  const features = [
-    {
-      icon: GitMerge,
-      name: 'Tailwind CSS',
-      description:
-        'A utility-first CSS framework used for styling and designing the projects user interface.',
-    },
-    {
-      icon: Lock,
-      name: 'OAuth',
-      description:
-        ' OAuth is an open standard for authorization that allows users to provide secure and delegated access to their resources on different websites without sharing their credentials. It was used for authentication purposes in your project.',
-    },
-    {
-      icon: CodeIcon,
-      name: 'Next.js',
-      description:
-        'Next.js is a framework built on top of React that enables server-side rendering, static site generation, and other advanced features',
-    },
-    {
-      icon: LayoutDashboard,
-      name: 'Framer Motion',
-      description:
-        'Framer Motion is a library for creating fluid animations and transitions in React. It was used to add animated effects and transitions to elements in your projects',
-    },
-    {
-      icon: Bot,
-      name: 'OpenAI API',
-      description:
-        'The OpenAI API is an interface provided by OpenAI that allows developers to integrate the powerful language models and AI capabilities of OpenAI into their applications. It was used in your project to leverage the OpenAI API for various natural language processing tasks or AI-powered features.',
-    },
-  ];
+
+interface Feature {
+  icon: React.ElementType;
+  name: string;
+  description: string;
+}
+
+interface FeaturedProps {
+  features: Feature[];
+  projectTitle: string;
+  projectDescription: string;
+  projectImageSrc: string;
+  projectImageAlt: string;
+}
+
+const Featured: React.FC<FeaturedProps> = ({
+  features,
+  projectTitle,
+  projectDescription,
+  projectImageSrc,
+  projectImageAlt,
+}) => {
   return (
     <section>
       <div className='relative max-w-6xl px-4 mx-auto sm:px-6 '>
@@ -53,12 +33,10 @@ export const Featured: React.FC = () => {
                 data-aos='fade-down'
               >
                 <h3 className='pb-3 text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100/60 via-zinc-200 to-zinc-200/60'>
-                  Project #1
+                  {projectTitle}
                 </h3>
                 <p className='mb-8 text-lg text-zinc-400'>
-                  Creavio.io is an all in one platform for content creators,
-                  influencers, entrepreneurs alike help launch their online
-                  brand leveraging AI generative tools. 🔺
+                  {projectDescription}
                 </p>
                 <dl className='max-w-xl grid grid-cols-1 gap-4 lg:max-w-none'>
                   {features.map((feature) => (
@@ -83,8 +61,8 @@ export const Featured: React.FC = () => {
               <div className='flex max-w-2xl mx-auto mt-16 md:w-5/12 lg:w-1/2 sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32'>
                 <div className='z-10 flex-none max-w-3xl sm:max-w-5xl lg:max-w-none'>
                   <Image
-                    src='/images/creavio.png'
-                    alt='App screenshot'
+                    src={projectImageSrc}
+                    alt={projectImageAlt}
                     width={2432}
                     height={1442}
                     className='w-[76rem] z-10 rounded-xl border border-white/10'
@@ -98,3 +76,5 @@ export const Featured: React.FC = () => {
     </section>
   );
 };
+
+export default Featured;

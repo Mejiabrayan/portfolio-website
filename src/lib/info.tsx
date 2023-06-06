@@ -17,10 +17,7 @@ export const title = () => {
 export const aboutMe = () => {
   return (
     <React.Fragment>
-      Based in the beautiful Bay Area, California, I take pleasure in
-      crafting amazing web experiences and delving into the world of software
-      development. Passionate about open-source projects and contributing to
-      their growth.
+      Based in the Bay Area, I love to build things on the web. These days I&apos;m working on freelance projects and contributing to open source.
     </React.Fragment>
   );
 };
