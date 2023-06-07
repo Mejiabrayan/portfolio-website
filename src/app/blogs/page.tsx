@@ -16,7 +16,7 @@ export default async function Blog() {
   const blog = await getBlogs();
 
   return (
-    <div className='min-h-screen max-w-2xl flex items-center overflow-x-hidden'>
+    <div className=' relative min-h-screen max-w-2xl flex items-center overflow-x-hidden'>
       <div className='container pt-30 px-6 min-h-full w-full mx-auto'>
         <div className='h-full gap-5 flex flex-col justify-center items-center lg:items-center'>
           <LargeHeading size='lg' className='text-center lg:text-center mt-3'>

@@ -9,7 +9,7 @@ export const Logo = logo;
 export const title = () => {
   return (
     <React.Fragment>
-      Full-Stack <br /> Software Engineer
+      Web Designer  /<br/> Developer
     </React.Fragment>
   );
 };

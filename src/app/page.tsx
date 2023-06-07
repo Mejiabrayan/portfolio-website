@@ -10,7 +10,6 @@ import { cn } from "@/lib/utils";
 import avatar from "@/app/avatar.jpg";
 import  Featured  from "@/components/Featured";
 import Balancer from "react-wrap-balancer";
-import { GitMerge } from "lucide-react";
 import { features, projectDescription, projectImageAlt, projectImageSrc, projectTitle } from "@/lib/technologies";
 
 
@@ -49,7 +48,7 @@ export default function Home() {
 
           <Subheading
             size="sm"
-            className="text-center lg:text-left tracking-normal text-zinc-400"
+            className="text-center lg:text-left tracking-normal text-mustard-100"
           >
             {name}
           </Subheading>

@@ -32,7 +32,7 @@ const Page: React.FC = () => {
       setSlideIndex(prevIndex);
     }
   };
-
+  
   useEffect(() => {
     const fetchProjects = async () => {
       const projectsData = await getProjects();

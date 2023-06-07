@@ -1,44 +1,44 @@
-import React, { Suspense } from 'react';
-import Header from '@/components/Header';
-import Loading from './loading';
-import './globals.css';
-import { cn } from '@/lib/utils';
-import { Analytics } from '@vercel/analytics/react';
-import { Inter as FontSans } from 'next/font/google';
-import localFont from 'next/font/local';
+import React, { Suspense } from "react";
+import Header from "@/components/Header";
+import Loading from "./loading";
+import "./globals.css";
+import { cn } from "@/lib/utils";
+import { Analytics } from "@vercel/analytics/react";
+import { Inter as FontSans } from "next/font/google";
+import localFont from "next/font/local";
 
-import { Metadata } from 'next';
-import ParallaxLayout from '@/components/parallaxLayout';
+import { Metadata } from "next";
+import ParallaxProvider from "@/components/ParallaxProvider";
 const fontSans = FontSans({
-  subsets: ['latin'],
-  variable: '--font-sans',
+  subsets: ["latin"],
+  variable: "--font-sans",
 });
 
 // Font files can be colocated inside of `pages`
 const fontHeading = localFont({
-  src: '../../assets/fonts/CalSans-SemiBold.woff2',
-  variable: '--font-heading',
+  src: "../../assets/fonts/CalSans-SemiBold.woff2",
+  variable: "--font-heading",
 });
 export const metadata: Metadata = {
   title: {
-    default: 'Brayan Mejia Cuenca Portfolio | Home',
-    template: '%s | Brayan Mejia Cuenca',
+    default: "Brayan Mejia Cuenca Portfolio | Home",
+    template: "%s | Brayan Mejia Cuenca",
   },
-  description: 'Brayan Mejia Cuenca Portfolio Website',
+  description: "Brayan Mejia Cuenca Portfolio Website",
   openGraph: {
-    title: 'Brayan Mejia Cuenca',
-    description: 'Brayan Mejia Cuenca Portfolio Website',
-    url: 'https://brayancodes.com',
-    siteName: 'Brayan Mejia Cuenca',
+    title: "Brayan Mejia Cuenca",
+    description: "Brayan Mejia Cuenca Portfolio Website",
+    url: "https://brayancodes.com",
+    siteName: "Brayan Mejia Cuenca",
     images: [
       {
-        url: 'logo.svg',
+        url: "/logo.svg",
         width: 1920,
         height: 1080,
       },
     ],
-    locale: 'en-US',
-    type: 'website',
+    locale: "en-US",
+    type: "website",
   },
   robots: {
     index: true,
@@ -46,20 +46,20 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   twitter: {
-    title: 'Brayan Mejia Cuenca',
-    card: 'summary_large_image',
+    title: "Brayan Mejia Cuenca",
+    card: "summary_large_image",
   },
   icons: {
-    shortcut: '/favicon.ico',
+    shortcut: "/favicon.ico",
   },
   verification: {
-    google: 'WzL-yjxsjdHj-kHwNBqzUz53pjiGnM2M273PfmwPrZ',
+    google: "WzL-yjxsjdHj-kHwNBqzUz53pjiGnM2M273PfmwPrZ",
   },
 };
 
@@ -70,23 +70,23 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang='en'
+      lang="en"
       className={cn(
-        'text-gray-100 antialiased ',
+        "text-gray-100 antialiased ",
         fontSans.variable,
         fontHeading.variable
       )}
     >
-      <body className='flex flex-col min-h-full antialiased'>
+      <body className="flex flex-col min-h-full antialiased">
         <Header />
         <Suspense fallback={<Loading />}>
-          <ParallaxLayout>
-            <main className='flex-grow flex flex-col justify-center items-center'>
+          <ParallaxProvider>
+            <main className="flex-grow flex flex-col justify-center items-center">
               {children}
 
               <Analytics />
             </main>
-          </ParallaxLayout>
+          </ParallaxProvider>
         </Suspense>
       </body>
     </html>

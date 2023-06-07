@@ -1,6 +1,6 @@
 import { Bot, CodeIcon, GitMerge, LayoutDashboard, Lock} from "lucide-react";
 
-export const projectTitle = 'Creavio.io;';
+export const projectTitle = 'Creavio.io';
 export const projectDescription = 'Creavio.io is an all in one platform for content creators, influencers, entrepreneurs alike help launch their online brand leveraging AI generative tools. 🔺';
 export const projectImageSrc = '/images/creavio.png';
 export const projectImageAlt = 'App screenshot';
