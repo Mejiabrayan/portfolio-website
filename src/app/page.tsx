@@ -8,19 +8,21 @@ import { aboutMe, name, title } from "@/lib/info";
 import { svgIcons } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 import avatar from "@/app/avatar.jpg";
-import  Featured  from "@/components/Featured";
+import Featured from "@/components/Featured";
 import Balancer from "react-wrap-balancer";
-import { features, projectDescription, projectImageAlt, projectImageSrc, projectTitle } from "@/lib/technologies";
-
-
+import {
+  features,
+  projectDescription,
+  projectImageAlt,
+  projectImageSrc,
+  projectTitle,
+} from "@/lib/technologies";
+import FeaturedProjects from "@/components/FeaturedProjects";
 
 export const metadata: Metadata = {
   title: "Brayan Mejia Cuenca | Full-Stack Software Engineer",
   description: "Portfolio of Brayan Mejia Cuenca",
 };
-
-
-;
 
 export default function Home() {
   return (
@@ -48,7 +50,7 @@ export default function Home() {
 
           <Subheading
             size="sm"
-            className="text-center lg:text-left tracking-normal text-mustard-100"
+            className="text-center lg:text-left tracking-normal text-slate-200"
           >
             {name}
           </Subheading>
@@ -84,20 +86,18 @@ export default function Home() {
                 "leading-relaxed max-w-md lg:max-w-xl text-center mb-6 flex-nowrap"
               )}
             >
-              <Balancer>
-              {aboutMe()}
-              </Balancer>
+              <Balancer>{aboutMe()}</Balancer>
             </Paragraph>
           </div>
         </div>
       </div>
-
-      <Featured 
-         features={features}
-         projectTitle={projectTitle}
-         projectDescription={projectDescription}
-         projectImageSrc={projectImageSrc}
-         projectImageAlt={projectImageAlt}
+    
+      <Featured
+        features={features}
+        projectTitle={projectTitle}
+        projectDescription={projectDescription}
+        projectImageSrc={projectImageSrc}
+        projectImageAlt={projectImageAlt}
       />
     </section>
   );

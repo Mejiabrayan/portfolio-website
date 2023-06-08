@@ -31,7 +31,7 @@ const Header: FC<HeaderProps> = ({}) => {
 
   return (
     <header className='flex flex-col lg:flex-row md:flex-row  bg-gray-900 shadow-md items-center justify-start'>
-      <div className='flex justify-between items-center px-4 md:px-8 md:py-6 md:border-r border-gray-800'>
+      <div className='flex justify-between items-center px-4 md:px-8 md:py-8 md:border-r border-gray-800'>
         <motion.a
           className='text-xl md:text-2xl font-bold tracking-tight transition-colors duration-300 hover:text-gray-300 cursor-pointer'
           whileHover={{ scale: 1.1 }}

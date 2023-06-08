@@ -1,9 +1,11 @@
-import LargeHeading from '@/components/ui/LargeHeading';
-import { getProject } from '../../../../../sanity/schemas/sanity-utils';
-import Image from 'next/image';
+import LargeHeading from "@/components/ui/LargeHeading";
+import { getProject } from "../../../../../sanity/schemas/sanity-utils";
+import Image from "next/image";
 
-import { PortableText } from '@portabletext/react';
-import AnimatedContainer from '@/components/AnimatedContainer';
+import { PortableText } from "@portabletext/react";
+import AnimatedContainer from "@/components/AnimatedContainer";
+import { Button } from "@/components/ui/Button";
+import Link from "next/link";
 
 type Props = {
   params: {
@@ -21,33 +23,34 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
-
-
 export default async function Page({ params }: Props) {
   const slug = params.project;
   const project = await getProject(slug);
 
   return (
-    <AnimatedContainer className='relative flex flex-col md:flex-row items-center justify-center mt-28 px-10'>
-      <div className='md:w-1/2 md:pr-8 mb-8 md:mb-0'>
-        <LargeHeading className='text-3xl font-bold mb-4'>
+    <AnimatedContainer className="relative flex flex-col md:flex-row items-center justify-center mt-28 px-10">
+      <div className=" text-center md:w-1/2 md:pr-8 mb-8 md:mb-0">
+        <LargeHeading className="text-3xl font-bold mb-4">
           {project.name}
         </LargeHeading>
-        <div className='text-lg leading-8 mt-4'>
+        <div className=" text-center text-lg leading-8 mt-4">
           <PortableText value={project.content} />
         </div>
+        <div className="mt-8">
+          <Link href="/case-studies">
+            <Button>View Case Study</Button>
+          </Link>
+        </div>
       </div>
-      <div className='md:w-1/2'>
+      <div className="md:w-1/2">
         <Image
           src={project.image}
           alt={project.name}
           width={500}
           height={500}
-          className='rounded-lg'
+          className="rounded-lg"
         />
       </div>
     </AnimatedContainer>
   );
 }
-
-

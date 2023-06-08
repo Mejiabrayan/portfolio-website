@@ -35,7 +35,7 @@ const Featured: React.FC<FeaturedProps> = ({
                 <h3 className='pb-3 text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100/60 via-zinc-200 to-zinc-200/60'>
                   {projectTitle}
                 </h3>
-                <p className='mb-8 text-lg text-zinc-400'>
+                <p className='mb-8 text-lg text-slate-50'>
                   {projectDescription}
                 </p>
                 <dl className='max-w-xl grid grid-cols-1 gap-4 lg:max-w-none'>
@@ -50,7 +50,7 @@ const Featured: React.FC<FeaturedProps> = ({
                           {feature.name}
                         </h4>
                       </div>
-                      <p className='text-sm text-left text-zinc-400 group-hover:text-zinc-950 duration-500'>
+                      <p className='text-sm text-left text-slate-50 group-hover:text-zinc-950 duration-500'>
                         {feature.description}
                       </p>
                     </div>

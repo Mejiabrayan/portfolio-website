@@ -1,18 +1,16 @@
-'use client'
-import { useState, useEffect } from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Button, buttonVariants } from "@/components/ui/Button";
-import { getProjects } from "../../../../sanity/schemas/sanity-utils";
+import { Button } from "@/components/ui/Button";
+import { getProjects } from "../../sanity/schemas/sanity-utils";
 import LargeHeading from "@/components/ui/LargeHeading";
 import Paragraph from "@/components/ui/Paragraph";
 import { PortableText } from "@portabletext/react";
 import Link from "next/link";
-import { Project } from "../../../../types/project";
+import { Project } from "../../types/project";
 
-export const revalidate = 60; // revalidate this page every 60 seconds
-
-const Page: React.FC = () => {
+const FeaturedProjects: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [slideIndex, setSlideIndex] = useState<number>(0);
   const projectsToShow = projects.slice(slideIndex, slideIndex + 3);
@@ -32,7 +30,7 @@ const Page: React.FC = () => {
       setSlideIndex(prevIndex);
     }
   };
-  
+
   useEffect(() => {
     const fetchProjects = async () => {
       const projectsData = await getProjects();
@@ -49,12 +47,17 @@ const Page: React.FC = () => {
 
   return (
     <>
-      <section className="max-w-6xl mx-auto py-auto">
+      <section className="max-w-6xl mx-auto py-10">
         <div className="text-center">
-          <LargeHeading size="lg" className="pb-5 text-transparent bg-clip-text bg-gradient-to-r from-zinc-200/60 via-zinc-200 to-zinc-200/60">Featured Projects</LargeHeading>
+          <LargeHeading
+            size="lg"
+            className="pb-5 text-transparent bg-clip-text bg-gradient-to-r from-zinc-200/60 via-zinc-200 to-zinc-200/60"
+          >
+            Featured Projects
+          </LargeHeading>
           <div className="mt-4 text-center border-none">
             <Paragraph size="default" className="tracking-tight text-slate-200">
-              Personal Work{' '}
+              Personal Work{" "}
             </Paragraph>
           </div>
         </div>
@@ -117,4 +120,4 @@ const Page: React.FC = () => {
   );
 };
 
-export default Page;
+export default FeaturedProjects;
