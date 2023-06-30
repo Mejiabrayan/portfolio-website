@@ -1,5 +1,5 @@
 'use client'
-import { motion, MotionProps } from 'framer-motion';
+import { motion, MotionProps, Variants } from 'framer-motion';
 import React from 'react';
 
 type Props = {
@@ -8,22 +8,25 @@ type Props = {
   className?: string;
 } & MotionProps;
 
-const AnimatedContainer: React.FC<Props> = ({ children, delay = 0, ...rest }) => {
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        delay: delay,
-        staggerChildren: 0.2,
-        duration: 0.6,
-      },
+const containerVariants: Variants = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      delay: 0.2,
+      staggerChildren: 0.2,
+      duration: 0.6,
+      ease: 'easeOut',
     },
-  };
+  },
+};
 
+const AnimatedContainer: React.FC<Props> = ({ children, delay = 0, ...rest }) => {
   return (
     <motion.div
-      variants={container}
+      variants={containerVariants}
       initial="hidden"
       animate="show"
       exit="hidden"

@@ -16,7 +16,7 @@ const buttonVariants = cva(
         subtle: 'bg-gray-100 text-gray-900 hover:bg-gray-200',
         ghost:
           'bg-transparent hover:bg-gray-100 data-[state=open]:bg-transparent',
-        link: 'bg-transparent underline-offset-4 hover:underline text-gray-900 hover:bg-transparent',
+        link: 'bg-transparent underline-offset-4 hover:underline text-gray-100 hover:bg-transparent',
         brand: 'bg-mustard-100 text-gray-800 hover:bg-mustard-200',
       },
       size: {

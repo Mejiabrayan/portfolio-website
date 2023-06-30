@@ -1,5 +1,5 @@
 import Image from 'next/image';
-
+import Link from 'next/link';
 
 interface Feature {
   icon: React.ElementType;
@@ -60,13 +60,18 @@ const Featured: React.FC<FeaturedProps> = ({
 
               <div className='flex max-w-2xl mx-auto mt-16 md:w-5/12 lg:w-1/2 sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32'>
                 <div className='z-10 flex-none max-w-3xl sm:max-w-5xl lg:max-w-none'>
-                  <Image
-                    src={projectImageSrc}
-                    alt={projectImageAlt}
-                    width={2432}
-                    height={1442}
-                    className='w-[76rem] z-10 rounded-xl border border-white/10'
-                  />
+                  <Link
+                    href='https://creavio-mejiabrayan.vercel.app/'
+                    target='_blank'
+                  >
+                    <Image
+                      src={projectImageSrc}
+                      alt={projectImageAlt}
+                      width={2432}
+                      height={1442}
+                      className='w-[76rem] z-10 rounded-xl border border-white/10'
+                    />
+                  </Link>
                 </div>
               </div>
             </div>

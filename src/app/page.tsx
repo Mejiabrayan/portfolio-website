@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <section className="relative mt-14 flex flex-col items-center justify-center min-h-screen">
+    <section className="relative mt-14 flex flex-col items-center justify-center min-w-screen">
       <div className="container flex max-w-[58rem] flex-col">
         <div className="h-full gap-6 flex flex-col justify-center items-center lg:items-center">
           <Image

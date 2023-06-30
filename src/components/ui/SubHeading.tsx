@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 import { cva, VariantProps } from 'class-variance-authority';
 
 const subheadingVariants = cva(
-  'text-gray-100 font-bold leading-tight tracking-tight',
+  '  fontSatoshi text-gray-100 font-bold leading-tight tracking-tight',
   {
     variants: {
       size: {
