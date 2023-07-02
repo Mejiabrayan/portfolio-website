@@ -1,6 +1,7 @@
-'use client'
+'use client';
+
 import { useState, useEffect } from 'react';
-import { motion, spring } from 'framer-motion';
+import { motion, useMotionValue, useTransform, spring } from 'framer-motion';
 import Image from 'next/image';
 import { Button, buttonVariants } from '@/components/ui/Button';
 import { getProjects } from '../../../../sanity/schemas/sanity-utils';
@@ -42,9 +43,19 @@ const Page: React.FC = () => {
     fetchProjects(); // fetch projects on page load (client-side)
   }, []);
 
-  const cardVariants = {
-    hidden: { opacity: 0, x: -100 },
-    visible: { opacity: 1, x: 0 },
+  const imageScale = useMotionValue(1);
+
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0 },
+    visible: { opacity: 1, scale: 1 },
+  };
+
+  const handleImageHover = () => {
+    imageScale.set(1.05);
+  };
+
+  const handleImageHoverEnd = () => {
+    imageScale.set(1);
   };
 
   return (
@@ -74,7 +85,7 @@ const Page: React.FC = () => {
               >
                 <motion.div
                   className='rounded-lg p-4 sm:p-6 flex flex-col w-80 h-96'
-                  variants={cardVariants}
+                  // variants={buttonVariants}
                   initial='hidden'
                   animate='visible'
                   transition={{ type: 'spring', stiffness: 200, damping: 20 }}
@@ -83,14 +94,23 @@ const Page: React.FC = () => {
                 >
                   <div className='relative h-40 w-full mb-2 sm:mb-4 text-white'>
                     {project.image && (
-                      <Image
-                        src={project.image}
-                        alt={project.name}
-                        width={300}
-                        height={300}
-                        priority={true}
-                        className='rounded-lg border-none'
-                      />
+                      <motion.div
+                        style={{ scale: imageScale }}
+                        variants={imageVariants}
+                        initial='hidden'
+                        animate='visible'
+                        onHoverStart={handleImageHover}
+                        onHoverEnd={handleImageHoverEnd}
+                      >
+                        <Image
+                          src={project.image}
+                          alt={project.name}
+                          width={300}
+                          height={300}
+                          priority={true}
+                          className='rounded-lg border-none'
+                        />
+                      </motion.div>
                     )}
                   </div>
                   <h3 className='text-lg font-bold mb-1 sm:mb-2 text-white '>
