@@ -1,6 +1,6 @@
-'use client';
+'use client'
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, spring } from 'framer-motion';
 import Image from 'next/image';
 import { Button, buttonVariants } from '@/components/ui/Button';
 import { getProjects } from '../../../../sanity/schemas/sanity-utils';
@@ -43,8 +43,8 @@ const Page: React.FC = () => {
   }, []);
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, x: -100 },
+    visible: { opacity: 1, x: 0 },
   };
 
   return (
@@ -73,11 +73,13 @@ const Page: React.FC = () => {
                 className='group'
               >
                 <motion.div
-                  className=' rounded-lg p-4 sm:p-6 flex flex-col w-80 h-96'
+                  className='rounded-lg p-4 sm:p-6 flex flex-col w-80 h-96'
                   variants={cardVariants}
                   initial='hidden'
                   animate='visible'
-                  transition={{ duration: 0.5 }}
+                  transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <div className='relative h-40 w-full mb-2 sm:mb-4 text-white'>
                     {project.image && (

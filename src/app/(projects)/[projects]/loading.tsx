@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 interface LoadingProps {}
 
-const Loading: FC<LoadingProps> = () => {
+const Loading: FC<LoadingProps> = ({}) => {
   return (
     <section className="relative flex items-center w-full">
       <div className="relative items-center w-full px-5 py-24 mx-auto md:px-12 lg:px-16 max-w-7xl">
@@ -21,7 +21,6 @@ const Loading: FC<LoadingProps> = () => {
                   className="bg-gray-200 h-12 w-64 animate-pulse rounded"
                 ></motion.div>
 
-                {/* Project Description */}
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -30,18 +29,11 @@ const Loading: FC<LoadingProps> = () => {
                 ></motion.div>
               </div>
 
-              {/* Live Site Button */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="bg-gray-200 h-12 w-36 animate-pulse rounded mt-10"
-              ></motion.div>
+            
             </div>
 
-            {/* Right Column */}
             <div className="order-first block w-full mt-12 aspect-square lg:mt-0">
-              {/* Project Image */}
+
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
