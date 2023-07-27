@@ -1,8 +1,12 @@
-'use client'
-import { BubbleMenu, EditorContent, FloatingMenu, useEditor } from '@tiptap/react';
+'us client'
+import {
+  BubbleMenu,
+  EditorContent,
+  FloatingMenu,
+  useEditor,
+} from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import React from 'react';
-import { EditorBubbleMenu } from './ui/Editor';
 
 const Tiptap = () => {
   const editor = useEditor({
@@ -82,8 +86,7 @@ const Tiptap = () => {
       )}
 
       <div className='max-w-7xl mx-auto bg-white shadow rounded-lg px-8 py-8 mt-10'>
-     
-        <div className="w-full">
+        <div className='w-full'>
           <EditorContent
             editor={editor}
             className='mt-8 text-black text-sm caret-black relative outline-none'

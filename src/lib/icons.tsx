@@ -55,6 +55,24 @@ export const svgIcons = {
 };
 
 export const Icon = ({ name }: { name: keyof typeof svgIcons }) => {
-    return svgIcons[name];
+  const getIconAnimationClass = (iconName: keyof typeof svgIcons) => {
+    switch (iconName) {
+      case 'twitter':
+        return 'fly-icon';
+      case 'github':
+        return 'rotate-icon';
+      case 'linkedin':
+        return 'scale-icon';
+      default:
+        return '';
     }
-    
+  };
+
+  const animationClass = getIconAnimationClass(name);
+
+  return (
+    <div className={`icon-container ${animationClass}`}>
+      <div className="icon-wrapper">{svgIcons[name]}</div>
+    </div>
+  );
+};

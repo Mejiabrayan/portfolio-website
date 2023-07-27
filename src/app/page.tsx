@@ -1,60 +1,37 @@
-import Image from 'next/image';
+import React from 'react';
 import Link from 'next/link';
-import LargeHeading from '@/components/ui/LargeHeading';
 import { Metadata } from 'next';
-import Paragraph from '@/components/ui/Paragraph';
-import Subheading from '@/components/ui/SubHeading';
-import { aboutMe, name, title } from '@/lib/info';
 import { svgIcons } from '@/lib/icons';
 import { cn } from '@/lib/utils';
-import avatar from '@/app/avatar.jpg';
-import Featured from '@/components/Featured';
+import { aboutMe, name, title, role, avatar } from '@/lib/info';
+
+import Subheading from '@/components/ui/SubHeading';
 import Balancer from 'react-wrap-balancer';
-import {
-  features,
-  projectDescription,
-  projectImageAlt,
-  projectImageSrc,
-  projectTitle,
-} from '@/lib/technologies';
-import FeaturedProjects from '@/components/FeaturedProjects';
 
 export const metadata: Metadata = {
   title: 'Brayan Mejia Cuenca | Full-Stack Software Engineer',
   description: 'Portfolio of Brayan Mejia Cuenca',
+  creator: 'Brayan Mejia Cuenca',
 };
 
-export default function Home() {
+const Home = () => {
   return (
-    <section className='relative mt-14 flex flex-col items-center justify-center min-w-screen'>
-      <div className='container flex max-w-[58rem] flex-col'>
-        <div className='h-full gap-6 flex flex-col justify-center items-center lg:items-center'>
-          <Image
-            src={avatar}
-            alt='Picture of the author'
-            width={100}
-            height={100}
-            className='rounded-full filter grayscale'
-            placeholder='blur'
-          />
-          <LargeHeading
-            size='lg'
-            className='font-extrabold text-center lg:text-center mt-4 tracking-tighter'
-          >
-            <Balancer>
-              <span className='pb-4 text-transparent bg-clip-text bg-gradient-to-r from-zinc-200/60 via-zinc-200 to-zinc-200/60'>
-                {title()}
-              </span>
-            </Balancer>
-          </LargeHeading>
-
+    <section className='relative pt-40 flex flex-col items-center justify-center max-w-screen'>
+      <div className='container px-4 w-full'>
+        <div className='flex flex-col items-center lg:items-start'>
+          <h1 className='font-heading text-4xl font-extrabold text-left lg:text-left  '>
+            <Balancer>{title()}</Balancer>
+          </h1>
           <Subheading
             size='sm'
-            className='text-center lg:text-left tracking-normal text-slate-200'
+            className='text-left lg:text-left -tracking-tighter text-zinc-900 dark:text-neutral-100 pt-3'
           >
-            {name}
+            {role()}
           </Subheading>
-          <div className='flex gap-4 mt-6'>
+          <h3 className='text-left lg:text-left tracking-tight text-neutral-400 pt-3 leading-tight'>
+            {name}
+          </h3>
+          <div className='flex gap-4 mt-6 text-zinc-900 dark:text-neutral-300'>
             <Link
               href='https://github.com/Mejiabrayan'
               target='_blank'
@@ -80,25 +57,27 @@ export default function Home() {
               {svgIcons.twitter}
             </Link>
           </div>
-          <div className='text-center flex flex-col gap-4 mt-4'>
-            <Paragraph
+          <div className='text-left flex flex-col gap-4 pt-4'>
+            <p
               className={cn(
-                'leading-relaxed max-w-md lg:max-w-xl text-center mb-6 flex-nowrap'
+                'body -tracking-tighter leading-tight font-medium max-w-md lg:max-w-xl text-center lg:text-left mb-6 sm:text-base text-zinc-300'
               )}
             >
-              <Balancer>{aboutMe()}</Balancer>
-            </Paragraph>
+              Based in the Bay Area, I love to build things on the web. These
+              days I&apos;m finding my path as a developer and learning new
+              things every day. I&apos;ve come to love building things with
+              React, Next.js, and Tailwind CSS. I&apos;m currently building my
+              first Saas product,{' '}
+              <Link href='https://logoaicreator.com/welcome'>
+                <span className='underline body'>LogoAICreator</span>
+              </Link>
+              , a logo maker that uses AI to generate logos.
+            </p>
           </div>
         </div>
       </div>
-
-      <Featured
-        features={features}
-        projectTitle={projectTitle}
-        projectDescription={projectDescription}
-        projectImageSrc={projectImageSrc}
-        projectImageAlt={projectImageAlt}
-      />
     </section>
   );
-}
+};
+
+export default Home;

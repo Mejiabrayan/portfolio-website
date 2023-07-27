@@ -60,11 +60,11 @@ const Page: React.FC = () => {
 
   return (
     <>
-      <section className='max-w-6xl mx-auto py-auto'>
+      <section className='max-w-6xl mx-auto py-20'>
         <div className='text-center'>
           <LargeHeading
             size='lg'
-            className='pb-5 text-transparent bg-clip-text bg-gradient-to-r from-zinc-200/60 via-zinc-200 to-zinc-200/60'
+            className='text-center pb-5 text-transparent bg-clip-text bg-gradient-to-r from-zinc-200/60 via-zinc-200 to-zinc-200/60'
           >
             Featured Projects
           </LargeHeading>

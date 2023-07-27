@@ -16,11 +16,13 @@ export default async function Blog() {
   const blog = await getBlogs();
 
   return (
-  
-      <div className="flex py-10 items-center overflow-x-hidden">
-        <div className="container px-6 min-h-min mx-auto">
-          <div className="gap-5 flex flex-col justify-center items-center lg:items-center">
-          <LargeHeading size='lg' className='text-center'>
+    <div className='flex py-10 items-center overflow-x-hidden'>
+      <div className='container px-6 min-h-min mx-auto'>
+        <div className='gap-5 flex flex-col justify-center items-center lg:items-center'>
+          <LargeHeading
+            size='lg'
+            className='text-center pb-5 text-transparent bg-clip-text bg-gradient-to-r from-zinc-200/60 via-zinc-200 to-zinc-200/60'
+          >
             Blog
           </LargeHeading>
 
@@ -55,4 +57,3 @@ export default async function Blog() {
     </div>
   );
 }
- 

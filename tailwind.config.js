@@ -41,7 +41,7 @@ module.exports = {
         }
       },
         fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
+        sans: ["var(--body)", ...fontFamily.sans],
         heading: ["var(--font-heading)", ...fontFamily.sans],
       },
     },

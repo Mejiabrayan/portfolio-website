@@ -1,4 +1,3 @@
-import LargeHeading from '@/components/ui/LargeHeading';
 import { getProject } from '../../../../../sanity/schemas/sanity-utils';
 import Image from 'next/image';
 
@@ -23,8 +22,7 @@ export async function generateMetadata({ params }: Props) {
     title: project.name,
   };
 }
-
-export default async function Page({ params }: Props) {
+const Page = async ({ params }: Props) => {
   const slug = params.project;
   const project = await getProject(slug);
 
@@ -37,11 +35,11 @@ export default async function Page({ params }: Props) {
               <div className='relative items-center gap-12 m-auto lg:inline-flex md:order-first'>
                 <div className='max-w-xl text-center lg:text-left'>
                   <div>
-                    <p className='text-2xl font-medium tracking-tight text-slate-100 sm:text-4xl  '>
+                    <p className='font-heading text-2xl font-medium tracking-tight text-slate-100 sm:text-4xl  '>
                       {project.name}
                     </p>
 
-                    <p className='max-w-xl mt-4 text-base tracking-tight text-zinc-300'>
+                    <p className='body max-w-xl mt-4 text-base tracking-tight text-zinc-300'>
                       <PortableText value={project.content} />
                     </p>
                   </div>
@@ -75,3 +73,5 @@ export default async function Page({ params }: Props) {
     </AnimatedContainer>
   );
 }
+
+export default Page;

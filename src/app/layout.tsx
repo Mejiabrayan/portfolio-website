@@ -4,22 +4,23 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 import { Analytics } from '@vercel/analytics/react';
 import { Inter as FontSans } from 'next/font/google';
+import { DM_Sans } from 'next/font/google';
 import localFont from 'next/font/local';
 
 import { Metadata } from 'next';
-import ParallaxProvider from '@/components/ParallaxProvider';
 import Header from '@/components/Header';
-const fontSans = FontSans({
-  subsets: ['latin'],
-  variable: '--font-sans',
-});
+import GradientBlur from '@/components/GradientBlur';
 
 // Font files can be colocated inside of `pages`
 const fontHeading = localFont({
-  src: '../../assets/fonts/CalSans-SemiBold.woff2',
+  src: '../../assets/fonts/NeuzeitGrotesk-Bold.woff2',
   variable: '--font-heading',
 });
 
+const body = localFont({
+  src: '../../assets/fonts/Biotif-Regular.woff',
+  variable: '--body',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -74,24 +75,25 @@ export default function RootLayout({
     <html
       lang='en'
       className={cn(
-        'text-gray-100 antialiased',
-        fontSans.variable,
-        fontHeading.variable
+        'text-gray-50 antialiased',
+        fontHeading.variable,
+        body.variable
       )}
     >
-      <body
-        className='flex flex-col min-h-screen antialiased '
+    <body
+        className='bg-[#131313] min-h-screen antialiased'
         suppressHydrationWarning
       >
         <Header />
-        <div className='flex-grow flex justify-center'>
-          <ParallaxProvider>
-            <main className='flex flex-col items-center '>
-              <Suspense fallback={<Loading />}>{children}</Suspense>
+        <Suspense fallback={<Loading />}>
+          <div className='flex justify-center'>
+            {/* <GradientBlur /> */}
+            <main className='max-w-screen-lg w-full px-4 py-8'>
+              {children}
               <Analytics />
             </main>
-          </ParallaxProvider>
-        </div>
+          </div>
+        </Suspense>
       </body>
     </html>
   );

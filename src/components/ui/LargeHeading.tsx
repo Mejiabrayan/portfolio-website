@@ -16,8 +16,8 @@ const headingVariants = cva(
         default: 'text-gray-100',
       },
       align: {
-        default: 'text-center',
-        center: 'text-center',
+        default: 'text-left',
+    
       },
       lineHeight: {
         'normal': 'leading-normal',

@@ -52,7 +52,7 @@ export default async function Blog({ params }: Props) {
         />
       </div>
 
-      <div className="text-center">
+      <div className="sm:text-center md:text-center lg:text-center">
         <LargeHeading size="md">
           <Balancer>{blog.title}</Balancer>
         </LargeHeading>
