@@ -1,5 +1,6 @@
 'use client';
 import Tiptap from '@/components/TipTap';
+import { CardShineEffect } from '@/components/animations/CardShineComponent';
 import LargeHeading from '@/components/ui/LargeHeading';
 import { FC, useState } from 'react';
 
@@ -23,6 +24,7 @@ const Page: FC<PageProps> = () => {
             <Tiptap />
         </section>
       </div>
+      <CardShineEffect />
     </section>
   );
 };

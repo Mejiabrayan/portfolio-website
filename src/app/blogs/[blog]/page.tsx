@@ -1,13 +1,14 @@
 import { getBlog } from "../../../../sanity/schemas/sanity-utils";
 import LargeHeading from "@/components/ui/LargeHeading";
-import { PortableText } from "@portabletext/react";
+import { PortableText, PortableTextComponents } from "@portabletext/react";
 import Balancer from "react-wrap-balancer";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Open_Sans } from "next/font/google";
 import { typewriter } from "@/lib/staticImages";
 import { Button } from "@/components/ui/Button";
+import CodeBlock, { CustomPortableTextComponent } from "@/components/CodeBlock";
+import { cn } from "@/lib/utils";
 
 const openSans = Open_Sans({
   subsets: ["latin"],
@@ -22,7 +23,6 @@ type Props = {
 
 export async function generateMetadata({ params }: Props) {
   const slug = params.blog;
-
   const blog = await getBlog(slug);
 
   return {
@@ -32,7 +32,6 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function Blog({ params }: Props) {
   const slug = params.blog;
-
   const blog = await getBlog(slug);
 
   const formatDate = (date: string) => {
@@ -41,8 +40,8 @@ export default async function Blog({ params }: Props) {
   };
 
   return (
-    <section className="relative px-4 py-12 mx-auto max-w-screen-md text-center">
-      <div className="relative h-96 rounded-lg overflow-hidden shadow-md mb-8">
+    <section className="px-4 py-12 mx-auto max-w-screen-md text-center">
+      <div className="relative h-60 md:h-80 lg:h-96 rounded-lg overflow-hidden shadow-md mx-auto mb-8">
         <Image
           src={typewriter}
           alt={blog.title}
@@ -52,32 +51,29 @@ export default async function Blog({ params }: Props) {
         />
       </div>
 
-      <div className="sm:text-center md:text-center lg:text-center">
-        <LargeHeading size="md">
-          <Balancer>{blog.title}</Balancer>
-        </LargeHeading>
-      </div>
+      <LargeHeading size="md" className="mb-4">
+        <Balancer>{blog.title}</Balancer>
+      </LargeHeading>
 
-      <div className="flex flex-col items-center text-gray-400 text-sm my-8">
-        <div className="text-center">
-          <div>by {blog.author}</div>
-          <div>{formatDate(blog.date)}</div>
-        </div>
+      <div className="text-gray-500 text-sm mb-8">
+        <div>by {blog.author}</div>
+        <div>{formatDate(blog.date)}</div>
       </div>
 
       <div
         className={cn(
-          "prose max-w-none tracking-wide",
-          openSans.className,
-          "text-center"
+          "prose max-w-none tracking-tight leading-tighter text-left mb-8",
+          openSans.className
         )}
       >
-        <PortableText value={blog.content} />
+        <PortableText
+          value={blog.content}
+          components={CustomPortableTextComponent}
+        />
       </div>
 
-      <div className="text-center my-8">
+      <div className="my-8">
         <Button variant={"outline"}>
-          {" "}
           <Link href="/blogs">Back to Blog</Link>
         </Button>
       </div>

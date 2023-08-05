@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 import { cva, VariantProps } from 'class-variance-authority';
 
 const headingVariants = cva(
-  'font-heading text-gray-100 font-extrabold',
+  'font-heading font-extrabold tracking-tighter',
   {
     variants: {
       size: {
@@ -16,7 +16,7 @@ const headingVariants = cva(
         default: 'text-gray-100',
       },
       align: {
-        default: 'text-left',
+        default: 'relative text-center',
     
       },
       lineHeight: {
