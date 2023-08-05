@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 const Home = () => {
   return (
     <PageWrapper>
-      <section className='relative pt-40 flex flex-col items-center justify-center max-w-screen'>
+      <section className='relative py-12 flex flex-col items-center justify-center max-w-screen'>
         <div className='container px-4 w-full'>
           <div className='flex flex-col items-center lg:items-start'>
             <h1 className='font-heading text-4xl font-extrabold text-left lg:text-left  '>
