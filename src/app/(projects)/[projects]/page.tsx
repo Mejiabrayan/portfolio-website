@@ -46,7 +46,7 @@ const Page: React.FC = () => {
 
   return (
     <PageWrapper>
-      <section className='max-w-6xl mx-auto py-20 px-4'>
+      <section className='max-w-6xl mx-auto space-y-12 px-4'>
         <div className='text-left mb-3'>
           <h1 className='font-heading text-5xl'>Featured Projects</h1>
         </div>
@@ -60,6 +60,7 @@ const Page: React.FC = () => {
                   animate={{ opacity: 1 }} // Animate opacity
                   exit={{ opacity: 0 }} // Animate opacity when exiting
                   transition={{ delay: projectsToShow.indexOf(project) * 0.2 }} // Stagger delay
+
                   whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                   whileTap={{ scale: 0.95, transition: { duration: 0.5 } }}
                 >
