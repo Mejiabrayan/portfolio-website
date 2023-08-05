@@ -21,7 +21,7 @@ export default async function Blog() {
     <div className='py-10 px-4 lg:px-0 flex justify-center items-center'>
       <div className='max-w-6xl mx-auto'>
         <div className='flex flex-col'>
-          <LargeHeading size='default' className='mb-4'>
+          <LargeHeading size='default' className='mb-4 text-left'>
             Blog
           </LargeHeading>
 {/* 
