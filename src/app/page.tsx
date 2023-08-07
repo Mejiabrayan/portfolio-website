@@ -22,9 +22,14 @@ const Home = () => {
       <section className='relative py-12 flex flex-col items-center justify-center max-w-screen'>
         <div className='container px-4 w-full'>
           <div className='flex flex-col items-center lg:items-start'>
-            <h1 className='font-heading text-4xl font-extrabold text-left lg:text-left  '>
-              <Balancer>{title()}</Balancer>
+            <h1 className='font-heading text-4xl font-extrabold text-left lg:text-left'>
+              <Balancer>
+                <span className='text-2xl lg:text-4xl xl:text-4xl'>
+                  {title()}
+                </span>
+              </Balancer>
             </h1>
+
             <Subheading
               size='sm'
               className='text-left lg:text-left -tracking-tighter text-zinc-900 dark:text-neutral-100 pt-3'

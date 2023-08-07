@@ -8,7 +8,7 @@ export const avatar = profile;
 export const Logo = logo;
 
 export const title = () => {
-  return <React.Fragment>Builder of all things on the Web</React.Fragment>;
+  return <React.Fragment>Crafting Digital Wonders on the Web</React.Fragment>;
 };
 
 export const role = () => {
@@ -22,9 +22,10 @@ export const aboutMe = () => {
       I&apos;m finding my path as a developer and learning new things every day.
       I&apos;ve come to love building things with React, Next.js, and Tailwind
       CSS. I&apos;m currently building my first Saas product,{' '}
-      <Link href='https://logoaicreator.com/welcome' ><span className='underline'>LogoAICreator
-        </span></Link>, a
-      logo maker that uses AI to generate logos.
+      <Link href='https://logoaicreator.com/welcome'>
+        <span className='underline'>LogoAICreator</span>
+      </Link>
+      , a logo maker that uses AI to generate logos.
     </React.Fragment>
   );
 };
