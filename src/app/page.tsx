@@ -24,7 +24,7 @@ const Home = () => {
           <div className='flex flex-col items-center lg:items-start'>
             <h1 className='font-heading text-4xl font-extrabold text-left lg:text-left'>
               <Balancer>
-                <span className='text-2xl lg:text-4xl xl:text-4xl'>
+                <span className='xxs:text-2xl text-2xl lg:text-4xl xl:text-4xl'>
                   {title()}
                 </span>
               </Balancer>
@@ -68,7 +68,7 @@ const Home = () => {
             <div className='text-left flex flex-col gap-4 pt-4'>
               <p
                 className={cn(
-                  'body -tracking-tighter leading-tight font-medium max-w-md lg:max-w-xl text-center lg:text-left mb-6 sm:text-base text-zinc-300'
+                  'body -tracking-tighter leading-tighter font-medium max-w-md lg:max-w-xl text-center lg:text-left mb-6 sm:text-sm md:text-base text-zinc-300'
                 )}
               >
                 Based in the Bay Area, I love to build things on the web. These
@@ -77,7 +77,7 @@ const Home = () => {
                 React, Next.js, and Tailwind CSS. I&apos;m currently building my
                 first Saas product,{' '}
                 <Link href='https://logoaicreator.com/welcome'>
-                  <span className='underline body'>LogoAICreator</span>
+                  <span className='underline'>LogoAICreator</span>
                 </Link>
                 , a logo maker that uses AI to generate logos.
               </p>

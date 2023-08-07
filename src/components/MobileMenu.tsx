@@ -14,52 +14,85 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   isOpen,
   onClose,
 }) => {
+  const menuVariants = {
+    initial: { scaleY: 0 },
+    animate: {
+      scaleY: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.12, 0, 0.39, 0],
+      },
+    },
+    exit: {
+      scaleY: 0,
+      transition: {
+        delay: 0.5,
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
+  const containerVariants = {
+    initial: {
+      transition: {
+        staggerChildren: 0.1,
+        staggerDirection: -1,
+      },
+    },
+    open: {
+      transition: {
+        delayChildren: 0.2, // Adjust this delay to match your desired animation
+        staggerChildren: 0.1,
+        staggerDirection: 1,
+      },
+    },
+  };
+
   const linkVariants = {
-    hidden: { opacity: 0, y: -10 },
-    visible: {
-      opacity: 1,
+    initial: { y: '30vh' },
+    open: {
       y: 0,
-      transition: { duration: 0.3, ease: 'easeOut' },
+      transition: {
+        ease: [0, 0.55, 0.45, 1],
+        duration: 0.7,
+      },
     },
   };
 
   return (
-    <AnimatePresence>
+    <AnimatePresence >
       {isOpen && (
         <motion.div
-          className='fixed top-0 left-0 w-full h-full z-20 bg-[#131313]'
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
+          className='fixed top-0 left-0 w-full origin-top h-full z-20 bg-[#131313]'
+          variants={menuVariants}
+          initial='initial'
+          animate='animate'
+          exit='exit'
           transition={{ duration: 0.3, ease: 'easeInOut' }}
         >
-          <div className='flex justify-end p-4'>
-            <button
-              onClick={onClose}
-              className='text-gray-400 hover:text-gray-600 focus:outline-none'
-            >
-              <X size={24} />
-            </button>
-          </div>
+          {/* Rest of your content */}
           <nav className='flex flex-col items-center justify-center h-full'>
             <motion.div
-              initial='hidden'
-              animate='visible'
-              variants={{
-                visible: {
-                  transition: { staggerChildren: 0.1 },
-                },
-              }}
+              variants={containerVariants}
+              initial='initial'
+              animate='open'
+              exit='initial'
             >
               {Object.entries(navItems).map(([path, { name }]) => (
                 <motion.div
                   key={path}
                   variants={linkVariants}
-                  className='text-xl font-bold tracking-tight py-4'
+                  className='text-5xl font-bold a-tracking-tight py-4'
                 >
-                  <Link href={path} onClick={onClose}>
-                    {name}
-                  </Link>
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <Link href={path} onClick={onClose}>
+                      {name}
+                    </Link>
+                  </motion.div>
                 </motion.div>
               ))}
             </motion.div>
