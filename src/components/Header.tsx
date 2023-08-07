@@ -1,11 +1,12 @@
-'use client'
+'use client';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { LayoutGroup, motion } from 'framer-motion';
 import Image from 'next/image';
 import { Logo } from '@/lib/info';
+import MobileMenu from './MobileMenu';
 
 interface HeaderProps {
   className?: string;
@@ -28,6 +29,8 @@ const navItems = {
 };
 
 const Header: FC<HeaderProps> = ({}) => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State to manage mobile menu open/close
+
   let pathname = usePathname() || '/';
   if (pathname.includes('/blog/')) {
     pathname = '/blog';
@@ -48,7 +51,7 @@ const Header: FC<HeaderProps> = ({}) => {
             width={50}
             height={50}
             placeholder='blur'
-            className='rounded-full filter grayscale'
+            className='rounded-full filter grayscale hidden md:block'
             priority
           />
         </motion.a>
@@ -66,7 +69,7 @@ const Header: FC<HeaderProps> = ({}) => {
                   {
                     'text-neutral-400': !isActive,
                     'font-bold': isActive,
-                    ' rounded-md shadow-white': isActive
+                    ' rounded-md shadow-white': isActive,
                   }
                 )}
               >
@@ -88,12 +91,32 @@ const Header: FC<HeaderProps> = ({}) => {
             );
           })}
         </nav>
-        {/* Mobile Menu Goes Here */}
-        {/* <div className='ml-auto pr-4 md:hidden'>
-          <span className='text-sm text-gray-400'>
-            working on this mobile menu thing 😅
-          </span>
-        </div> */}
+        <div className='ml-auto pt-4 pr-4 md:hidden'>
+          <button
+            onClick={() => setIsMobileMenuOpen(true)}
+            className='text-sm text-gray-400 focus:outline-none'
+          >
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              className='h-6 w-6 text-gray-400 hover:text-gray-600 focus:outline-none'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+            >
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth={2}
+                d='M4 6h16M4 12h16m-7 6h7'
+              />
+            </svg>
+          </button>
+        </div>
+        <MobileMenu
+          navItems={navItems}
+          isOpen={isMobileMenuOpen}
+          onClose={() => setIsMobileMenuOpen(false)}
+        />
       </LayoutGroup>
     </header>
   );
