@@ -5,8 +5,6 @@ import { AnimatePresence, motion, useMotionValue, useTransform } from 'framer-mo
 import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
 import { getProjects } from '../../../../sanity/schemas/sanity-utils';
-import LargeHeading from '@/components/ui/LargeHeading';
-import Paragraph from '@/components/ui/Paragraph';
 import { PortableText } from '@portabletext/react';
 import Link from 'next/link';
 import { Project } from '../../../../types/project';
