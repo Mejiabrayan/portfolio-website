@@ -32,14 +32,14 @@ const Home = () => {
 
             <Subheading
               size='sm'
-              className='text-left lg:text-left -tracking-tighter text-zinc-900 dark:text-neutral-100 pt-3'
+              className='text-left lg:text-left -tracking-tightertext-neutral-100 pt-3'
             >
               {role()}
             </Subheading>
             <h3 className='text-left lg:text-left tracking-tight text-neutral-400 pt-3 leading-tight'>
               {name}
             </h3>
-            <div className='flex gap-4 mt-6 text-zinc-900 dark:text-neutral-300'>
+            <div className='flex gap-4 mt-6 text-neutral-300'>
               <Link
                 href='https://github.com/Mejiabrayan'
                 target='_blank'

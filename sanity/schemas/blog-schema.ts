@@ -89,6 +89,7 @@ const blog = {
           options: {
             withFilename: true, // optional
             highlightedLines: true, // optional
+            
           },
         },
       ],

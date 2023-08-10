@@ -14,75 +14,71 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   isOpen,
   onClose,
 }) => {
-  const menuVariants = {
-    initial: { scaleY: 0 },
-    animate: {
-      scaleY: 1,
-      transition: {
-        duration: 0.5,
-        ease: [0.12, 0, 0.39, 0],
-      },
-    },
-    exit: {
-      scaleY: 0,
-      transition: {
-        delay: 0.5,
-        duration: 0.5,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
-  const containerVariants = {
-    initial: {
-      transition: {
-        staggerChildren: 0.1,
-        staggerDirection: -1,
-      },
-    },
-    open: {
-      transition: {
-        delayChildren: 0.2, // Adjust this delay to match your desired animation
-        staggerChildren: 0.1,
-        staggerDirection: 1,
-      },
-    },
-  };
-
   const linkVariants = {
-    initial: { y: '30vh' },
-    open: {
+    hidden: { opacity: 0, y: -10 },
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: {
-        ease: [0, 0.55, 0.45, 1],
-        duration: 0.7,
-      },
+      transition: { duration: 0.3, ease: 'easeOut' },
+    },
+  };
+
+  const menuVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.3, ease: 'easeInOut' },
+    },
+    exit: { opacity: 0, y: -20 },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: -10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.3, ease: 'easeOut' },
     },
   };
 
   return (
-    <AnimatePresence >
+    <AnimatePresence mode='wait'>
       {isOpen && (
         <motion.div
           className='fixed top-0 left-0 w-full origin-top h-full z-20 bg-[#131313]'
-          variants={menuVariants}
-          initial='initial'
-          animate='animate'
+          initial='hidden'
+          animate='visible'
           exit='exit'
-          transition={{ duration: 0.3, ease: 'easeInOut' }}
+          variants={menuVariants}
         >
-          {/* Rest of your content */}
+          <div className='flex justify-end p-4'>
+            <button
+              onClick={onClose}
+              className='text-gray-400 hover:text-gray-600 focus:outline-none'
+            >
+              <X size={24} />
+            </button>
+          </div>
           <nav className='flex flex-col items-center justify-center h-full'>
             <motion.div
-              variants={containerVariants}
-              initial='initial'
-              animate='open'
-              exit='initial'
+              initial='hidden'
+              animate='visible'
+              exit='hidden'
+              variants={{
+                visible: {
+                  transition: {
+                    staggerChildren: 0.1,
+                    staggerDirection: -1,
+                    delayChildren: 0.2,
+                  },
+                },
+              }}
             >
               {Object.entries(navItems).map(([path, { name }]) => (
                 <motion.div
                   key={path}
-                  variants={linkVariants}
+                  variants={itemVariants}
                   className='text-5xl font-bold a-tracking-tight py-4'
                 >
                   <motion.div
