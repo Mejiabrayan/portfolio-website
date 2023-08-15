@@ -1,31 +1,43 @@
-import React, { FC } from 'react';
+import React, { useState, useEffect } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 
-const LoadingSkeleton: FC = () => {
-  const skeletonItems = Array.from({ length: 3 }).map((_, index) => (
-    <div
-      key={index}
-      className='rounded p-4 mb-6 bg-transparent animate-pulse shadow-md flex'
-    >
-      <div className='relative h-40 w-40  rounded-lg'></div>
-      <div className='flex flex-col ml-4'>
-        <div className='w-40 h-4 bg-gray-400 mb-2'></div>
-        <div className='w-full h-16 bg-gray-400'></div>
-      </div>
-    </div>
-  ));
-
+const LoadingUI = () => {
   return (
     <section className='max-w-6xl mx-auto space-y-12 px-4'>
-      <div className='text-left mb-6'>
-        <h1 className='font-heading text-5xl bg-gray-300 w-3/4 h-12 mb-4'></h1>
+      <div className='text-left mb-3'>
+        <h1 className='font-heading text-5xl'>Loading...</h1>
       </div>
-      <div className='flex flex-col mt-8'>{skeletonItems}</div>
+      <div className='flex flex-col mt-8'>
+        {[0, 1, 2].map((index) => (
+          <div
+            key={index}
+            className='rounded-lg p-4 mb-6 bg-transparent shadow-md flex'
+        
+          >
+            <div className='animate-pulse relative h-40 w-40 bg-gray-300 rounded'></div>
+            <div className='flex flex-col ml-4'>
+              <div className='animate-pulse h-4 w-1/2 bg-gray-300 rounded mb-2'></div>
+              <div className='animate-pulse h-3 w-full bg-gray-300 rounded'></div>
+            </div>
+          </div>
+        ))}
+      </div>
       <div className='flex justify-center'>
-        <div className='w-24 h-8 bg-gray-300 mr-2'></div>
-        <div className='w-24 h-8 bg-gray-300'></div>
+        <button
+          className='bg-gray-300 text-gray-600 rounded-md py-2 px-4 mr-2'
+          disabled
+        >
+          Previous
+        </button>
+        <button
+          className='bg-gray-300 text-gray-600 rounded-md py-2 px-4'
+          disabled
+        >
+          Next
+        </button>
       </div>
     </section>
   );
 };
 
-export default LoadingSkeleton;
+export default LoadingUI;

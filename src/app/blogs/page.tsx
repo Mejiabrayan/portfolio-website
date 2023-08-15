@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import LargeHeading from '@/components/ui/LargeHeading';
 import { Metadata } from 'next';
-import Paragraph from '@/components/ui/Paragraph';
 import Subheading from '@/components/ui/SubHeading';
 
 import { getBlogs } from '../../../sanity/schemas/sanity-utils';
 import { PageWrapper } from '@/components/animations/PageWrapper';
+import GradientBlur from '@/components/GradientBlur';
 
 export const metadata: Metadata = {
   title: 'Blog | Brayan Mejia Cuenca',
@@ -18,7 +18,8 @@ export default async function Blog() {
 
   return (
     <PageWrapper>
-    <div className='py-10 px-4 lg:px-0 flex justify-center items-center'>
+    <div className='relative py-10 px-4 lg:px-0 flex justify-center items-center'>
+    <GradientBlur />
       <div className='max-w-6xl mx-auto'>
         <div className='flex flex-col'>
           <LargeHeading size='default' className='mb-4 text-left'>

@@ -1,7 +1,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { AnimatePresence, motion, useMotionValue, useTransform } from 'framer-motion';
+import {
+  AnimatePresence,
+  motion,
+  useMotionValue,
+  useTransform,
+} from 'framer-motion';
 import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
 import { getProjects } from '../../../../sanity/schemas/sanity-utils';
@@ -10,7 +15,7 @@ import Link from 'next/link';
 import { Project } from '../../../../types/project';
 import { PageWrapper } from '@/components/animations/PageWrapper';
 
-export const revalidate = 60; // revalidate this page every 60 seconds
+export const revalidate = 1; // revalidate this page every 60 seconds
 
 const Page: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -58,7 +63,6 @@ const Page: React.FC = () => {
                   animate={{ opacity: 1 }} // Animate opacity
                   exit={{ opacity: 0 }} // Animate opacity when exiting
                   transition={{ delay: projectsToShow.indexOf(project) * 0.2 }} // Stagger delay
-
                   whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                   whileTap={{ scale: 0.95, transition: { duration: 0.5 } }}
                 >
