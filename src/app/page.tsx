@@ -8,6 +8,7 @@ import { name, title, role } from '@/lib/info';
 import Subheading from '@/components/ui/SubHeading';
 import Balancer from 'react-wrap-balancer';
 import { PageWrapper } from '@/components/animations/PageWrapper';
+import Hover from '@/components/animations/Hover';
 
 export const metadata: Metadata = {
   title: 'Brayan Mejia Cuenca | Full-Stack Software Engineer',
@@ -21,13 +22,14 @@ const Home = () => {
       <section className='relative py-12 flex flex-col items-center justify-center max-w-screen'>
         <div className='container px-4 w-full'>
           <div className='flex flex-col items-center lg:items-start'>
-            <h1 className='font-heading text-4xl font-extrabold text-left lg:text-left'>
+            <h1 className='font-heading text-4xl font-extrabold text-left lg:text-left  '>
               <Balancer>
                 <span className='xxs:text-2xl text-2xl lg:text-4xl xl:text-4xl'>
                   {title()}
                 </span>
               </Balancer>
             </h1>
+          
 
             <Subheading
               size='sm'
@@ -35,11 +37,11 @@ const Home = () => {
             >
               {role()}
             </Subheading>
-            
+
             <h3 className='text-left lg:text-left tracking-tight text-neutral-400 pt-3 leading-tight'>
               {name}
             </h3>
-            
+
             <div className='flex gap-4 mt-6 text-neutral-300'>
               <Link
                 href='https://github.com/Mejiabrayan'
@@ -86,35 +88,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-      {/* <section className='space-y-12 flex flex-col items-center justify-center max-w-screen'>
-<form className="w-full max-w-lg">
-  <div className="flex flex-wrap -mx-3 mb-6">
-    <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-first-name">
-        First Name
-      </label>
-      <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane" />
-      <p className="text-red-500 text-xs italic">Please fill out this field.</p>
-    </div>
-    <div className="w-full md:w-1/2 px-3">
-      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-last-name">
-        Last Name
-      </label>
-      <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe" />
-    </div>
-  </div>
-  <div className="flex flex-wrap -mx-3 mb-6">
-    <div className="w-full px-3">
-      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-password">
-        E-mail
-      </label>
-      <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="email" type="email" placeholder="
-      Email" />
-      <p className="text-gray-600 text-xs italic">Some tips - as long as needed</p>
-    </div>
-  </div>
-  </form>
-      </section> */}
     </PageWrapper>
   );
 };

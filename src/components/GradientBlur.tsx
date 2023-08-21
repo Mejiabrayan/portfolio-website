@@ -10,3 +10,6 @@ export default function GradientBlur(): JSX.Element {
     </div>
   );
 }
+
+GradientBlur.displayName = 'GradientBlur';
+

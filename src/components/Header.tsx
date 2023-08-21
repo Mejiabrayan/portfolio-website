@@ -7,6 +7,7 @@ import { LayoutGroup, motion } from 'framer-motion';
 import Image from 'next/image';
 import { Logo } from '@/lib/info';
 import MobileMenu from './MobileMenu';
+import Hover from './animations/Hover';
 
 interface HeaderProps {
   className?: string;
@@ -62,17 +63,18 @@ const Header: FC<HeaderProps> = ({}) => {
             const isActive = path === pathname;
             return (
               <Link
-                key={path}
-                href={path}
-                className={clsx(
-                  'transition-all hover:text-neutral-200 flex align-middle',
+              key={path}
+              href={path}
+              className={clsx(
+                'transition-all hover:text-neutral-200 flex align-middle',
                   {
                     'text-neutral-400': !isActive,
                     'font-bold': isActive,
                     ' rounded-md shadow-white': isActive,
                   }
                 )}
-              >
+                >
+                <Hover>
                 <span className='relative py-[5px] px-[10px]'>
                   {name}
                   {path === pathname ? (
@@ -87,6 +89,7 @@ const Header: FC<HeaderProps> = ({}) => {
                     />
                   ) : null}
                 </span>
+              </Hover>
               </Link>
             );
           })}
