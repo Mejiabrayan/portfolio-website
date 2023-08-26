@@ -2,6 +2,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import Link from 'next/link';
+import Hover from './animations/Hover';
 
 interface MobileMenuProps {
   navItems: Record<string, { name: string }>;
@@ -86,7 +87,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                     whileTap={{ scale: 0.9 }}
                   >
                     <Link href={path} onClick={onClose}>
-                      {name}
+                      <Hover>{name}</Hover>
                     </Link>
                   </motion.div>
                 </motion.div>

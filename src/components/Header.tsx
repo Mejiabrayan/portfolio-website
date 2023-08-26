@@ -1,4 +1,5 @@
 'use client';
+
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
@@ -63,20 +64,19 @@ const Header: FC<HeaderProps> = ({}) => {
             const isActive = path === pathname;
             return (
               <Link
-              key={path}
-              href={path}
-              className={clsx(
-                'transition-all hover:text-neutral-200 flex align-middle',
+                key={path}
+                href={path}
+                className={clsx(
+                  'transition-all hover:text-neutral-200 flex align-middle',
                   {
-                    'text-neutral-400': !isActive,
+                    'text-zinc-500': !isActive,
                     'font-bold': isActive,
                     ' rounded-md shadow-white': isActive,
                   }
                 )}
-                >
-                <Hover>
+              >
                 <span className='relative py-[5px] px-[10px]'>
-                  {name}
+                  <Hover>{name}</Hover>
                   {path === pathname ? (
                     <motion.div
                       className='absolute inset-0 rounded-full text-black z-[-1]'
@@ -89,11 +89,11 @@ const Header: FC<HeaderProps> = ({}) => {
                     />
                   ) : null}
                 </span>
-              </Hover>
               </Link>
             );
           })}
         </nav>
+        <div className='ml-auto p-4'></div>
         <div className='ml-auto pt-4 pr-4 md:hidden'>
           <button
             onClick={() => setIsMobileMenuOpen(true)}

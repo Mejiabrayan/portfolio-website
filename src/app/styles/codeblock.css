@@ -1,0 +1,54 @@
+code[class*="language-"],
+pre[class*="language-"] {
+	font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
+	font-size: 14px;
+	line-height: 1.375;
+	direction: ltr;
+	text-align: left;
+
+	word-spacing: normal;
+	word-break: normal;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	background: #131313;
+	color: #e6e6e6; /* Adjust text color to match your text-zinc-300 */
+}
+
+pre > code[class*="language-"] {
+	font-size: 1em;
+}
+
+/* ... (other styles) ... */
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+/* ... (other styles) ... */
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	background: rgba(0, 0, 0, 0.1); /* Add a background to inline code */
+	color: #e6e6e6; /* Adjust text color to match your text-zinc-300 */
+}
+
+/* ... (other styles) ... */
+
+/* Line Highlight plugin */
+.line-highlight.line-highlight {
+	background: rgba(255, 204, 153, 0.2); /* Adjust background color to match your brand color */
+	background: -webkit-linear-gradient(left, rgba(255, 204, 153, 0.2) 70%, rgba(255, 204, 153, 0));
+	background: linear-gradient(to right, rgba(255, 204, 153, 0.2) 70%, rgba(255, 204, 153, 0));
+}

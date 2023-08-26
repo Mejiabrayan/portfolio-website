@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { cn } from '@/lib/utils';
 import { cva, VariantProps } from 'class-variance-authority';
 
-const subheadingVariants = cva('font-heading leading-tight tracking-tight', {
+const subheadingVariants = cva('leading-tight tracking-tighter', {
   variants: {
     size: {
       default: 'text-2xl md:text-3xl lg:text-4xl',

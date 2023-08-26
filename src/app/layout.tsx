@@ -3,19 +3,22 @@ import Loading from './loading';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { Analytics } from '@vercel/analytics/react';
-import { Inter as FontSans } from 'next/font/google';
-import { DM_Sans } from 'next/font/google';
 import localFont from 'next/font/local';
 
 import { Metadata } from 'next';
 import Header from '@/components/Header';
-import GradientBlur from '@/components/GradientBlur';
+import Footer from '@/components/Footer';
 
-// Font files can be colocated inside of `pages`
 const fontHeading = localFont({
   src: '../../assets/fonts/NeuzeitGrotesk-Bold.woff2',
   variable: '--font-heading',
 });
+
+// const fontHeading = Inter({
+//   variable: '--font',
+//   subsets: ['latin'],
+
+// });
 
 const body = localFont({
   src: '../../assets/fonts/Biotif-Regular.woff',
@@ -66,6 +69,9 @@ export const metadata: Metadata = {
   },
 };
 
+export const runtime = 'edge';
+
+export const dynamic = 'force-dynamic';
 export default function RootLayout({
   children,
 }: {
@@ -80,7 +86,7 @@ export default function RootLayout({
         body.variable
       )}
     >
-    <body
+      <body
         className='bg-[#131313] min-h-screen antialiased'
         suppressHydrationWarning
       >
@@ -88,12 +94,13 @@ export default function RootLayout({
         <Suspense fallback={<Loading />}>
           <div className='flex justify-center'>
             {/* <GradientBlur /> */}
-            <main className='max-w-screen-lg w-full px-4 py-8'>
+            <main className='max-w-screen-lg w-full px-4 py-4'>
               {children}
               <Analytics />
             </main>
           </div>
         </Suspense>
+        <Footer />
       </body>
     </html>
   );

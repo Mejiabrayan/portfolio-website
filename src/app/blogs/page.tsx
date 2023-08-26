@@ -6,12 +6,14 @@ import Subheading from '@/components/ui/SubHeading';
 import { getBlogs } from '../../../sanity/schemas/sanity-utils';
 import { PageWrapper } from '@/components/animations/PageWrapper';
 import GradientBlur from '@/components/GradientBlur';
+import { revalidate } from '../(projects)/[projects]/page';
 
 export const metadata: Metadata = {
   title: 'Blog | Brayan Mejia Cuenca',
   description: 'Blog of Brayan Mejia Cuenca',
   creator: 'Brayan Mejia Cuenca',
 };
+
 
 export default async function Blog() {
   const blog = await getBlogs();

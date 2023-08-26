@@ -15,7 +15,7 @@ import Link from 'next/link';
 import { Project } from '../../../../types/project';
 import { PageWrapper } from '@/components/animations/PageWrapper';
 
-export const revalidate = 1; // revalidate this page every 60 seconds
+export const revalidate = 60 // revalidate this page every 60 seconds
 
 const Page: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -43,7 +43,9 @@ const Page: React.FC = () => {
     };
 
     fetchProjects(); // fetch projects on page load (client-side)
-  }, []);
+  }, [ 
+    // no dependencies, so this effect will only run once on page load
+  ]);
 
   const imageScale = useMotionValue(1);
 

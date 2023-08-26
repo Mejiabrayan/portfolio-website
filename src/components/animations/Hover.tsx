@@ -1,49 +1,51 @@
 'use client'
-import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import SplitText from "gsap-trial/SplitText";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
-interface HoverProps {
-  children: React.ReactNode;
-}
+const fallDown = {
+  init: {
+    y: "0%"
+  },
 
-export default function Hover({ children }: HoverProps) {
-  const ref = useRef<HTMLSpanElement | null>(null);
+  hover: (i: number) => ({
+    y: "-100%",
+    transition: { ease: [0.25, 1, 0.5, 1], delay: i * 0.015 }
+  }),
 
-  useEffect(() => {
-    if (!ref.current) return; // used early return to avoid unnecessary nesting of if statements and to avoid else statement
+  exit: (i: number) => ({
+    y: "0%",
+    transition: { ease: [0.83, 0, 0.17, 1], delay: i * 0.024 }
+  })
+};
 
-    const element = gsap.utils.selector(ref.current);
-    gsap.registerPlugin(SplitText);
-    const splitText = new SplitText(ref.current, {
-      type: "chars",
-      charsClass: "char",
-    });
+export default function Hover({ children }: { children: string }) {
+  const [variant, setVariant] = useState("init");
 
-    const animate = (direction: "in" | "out") => {
-      const ease = direction === "in" ? "power4.easeOut" : "power4.easeInOut";
-      const staggerEach = direction === "in" ? 0.015 : 0.024;
-
-      gsap.to(splitText.chars, {
-        y: direction === "in" ? "-100%" : "0%",
-        ease,
-        stagger: { each: staggerEach, from: direction === "out" ? "end" : "start" },
-      });
-    };
-
-    ref.current.addEventListener("mouseenter", () => animate("in"));
-    ref.current.addEventListener("mouseleave", () => animate("out"));
-  }, []);
+  const letters = children.split("").map((letter, i) => (
+    <motion.span
+      className="relative inline-block"
+      key={i}
+      custom={i}
+      variants={fallDown}
+      animate={variant}
+    >
+      {letter}
+    </motion.span>
+  ));
 
   return (
     <span
-      ref={ref}
-      className="relative leading-none inline-flex overflow-hidden cursor-pointer"
+      onMouseEnter={() => setVariant("hover")}
+      onMouseLeave={() => setVariant("exit")}
+      className="relative leading-none inline-flex overflow-hidden uppercase"
     >
-      <span className="first">{children}</span>
-      <span className="second absolute top-0 left-0 translate-y-full">
-        {children}
-      </span>
+      <motion.span transition={{ staggerChildren: 0.1 }}>{letters}</motion.span>
+      <motion.span
+        transition={{ staggerChildren: 0.1 }}
+        className="absolute top-0 left-0 translate-y-full"
+      >
+        {letters}
+      </motion.span>
     </span>
   );
 }

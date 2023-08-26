@@ -1,14 +1,8 @@
 import { getBlog } from '../../../../sanity/schemas/sanity-utils';
-import LargeHeading from '@/components/ui/LargeHeading';
-import { PortableText, PortableTextComponents } from '@portabletext/react';
-import Balancer from 'react-wrap-balancer';
-import Link from 'next/link';
+import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
-import { Open_Sans } from 'next/font/google';
-import { typewriter } from '@/lib/staticImages';
-import { Button } from '@/components/ui/Button';
-import CodeBlock, { CustomPortableTextComponent } from '@/components/CodeBlock';
-import { cn } from '@/lib/utils';
+
+import { CustomPortableTextComponent } from '@/components/CodeBlock';
 
 type Props = {
   params: {
@@ -35,38 +29,32 @@ export default async function Blog({ params }: Props) {
   };
 
   return (
-    <section className='px-4 py-12 mx-auto max-w-screen-md'>
-      <div className='relative h-60 md:h-80 lg:h-96 rounded-lg overflow-hidden shadow-md mx-auto mb-8'>
+    <section className='grid grid-cols-[2fr_1fr] py-6 sm:py-12 gap-6 sm:gap-12'>
+      <div className='text-gray-300 text-base leading-[150%] self-start sm:self-end'>
         <Image
-          src={typewriter}
-          alt={blog.title}
-          layout='fill'
-          objectFit='cover'
+          className='w-full rounded-lg'
+          src={blog.image}
+          alt='Picture of the author'
+          width={500}
+          height={500}
           placeholder='blur'
-          priority
-          className='rounded'
+          blurDataURL={blog.image}
         />
+        <p className='mt-2 sm:mt-4 text-center sm:text-left'>
+          <span className='block text-zinc-400'>By {blog.author}</span>
+          <span className='block text-zinc-400'>on {formatDate(blog.date)}</span>
+        </p>
       </div>
-      <h1 className='text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6'>
-        <Balancer>{blog.title}</Balancer>
+      <h1 className='text-zinc-300 text-2xl xxs:text-2xl sm:text-2xl md:text-4xl lg:text-5xl font-bold leading-tight'>
+        {blog.title}
       </h1>
-
-      <div className='text-gray-600 text-sm mb-4 md:mb-6'>
-        <div>By {blog.author}</div>
-        <div>{formatDate(blog.date)}</div>
-      </div>
-
-      <div className='prose max-w-none tracking-tight leading-relaxed text-center mb-8'>
-        <PortableText
-          value={blog.content}
-          components={CustomPortableTextComponent}
-        />
-      </div>
-
-      <div className='my-6'>
-        <Button variant={'link'}>
-          <Link href='/blogs'>Go back to blogs</Link>
-        </Button>
+      <div className='col-span-2'>
+        <div className='text-zinc-300 xxs:text-xs lg:text-base leading-[150%]'>
+          <PortableText
+            components={CustomPortableTextComponent}
+            value={blog.content}
+          />
+        </div>
       </div>
     </section>
   );
