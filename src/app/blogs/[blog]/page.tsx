@@ -2,7 +2,7 @@ import { getBlog } from '../../../../sanity/schemas/sanity-utils';
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
 
-import { CustomPortableTextComponent } from '@/components/CodeBlock';
+import { CustomPortableTextComponent, components } from '@/components/CodeBlock';
 
 type Props = {
   params: {
@@ -52,7 +52,16 @@ export default async function Blog({ params }: Props) {
         <div className='text-zinc-300 xxs:text-xs lg:text-base leading-[150%]'>
           <PortableText
             components={CustomPortableTextComponent}
+            // onMissingComponent={(type, props) => {
+            //   if (type === 'block') {
+            //     return <p>{props.children}</p>;
+            //   }
+            //   return null;
+            // }}
+            
             value={blog.content}
+            listNestingMode='html'
+            key={blog._id}
           />
         </div>
       </div>

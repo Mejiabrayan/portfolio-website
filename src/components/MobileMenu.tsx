@@ -47,7 +47,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
     <AnimatePresence mode='wait'>
       {isOpen && (
         <motion.div
-          className='fixed top-0 left-0 w-full origin-top h-full z-20 bg-[#131313]'
+          className='fixed top-0 left-0 w-full origin-top h-full z-20 bg-gradient-to-br from-blue-900 via-blue-800 to-[#131313]'
           initial='hidden'
           animate='visible'
           exit='exit'

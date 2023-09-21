@@ -85,7 +85,7 @@ export default function RootLayout({
       )}
     >
       <body
-        className='bg-[#131313] min-h-screen antialiased'
+        className='bg-[#131313] min-h-screen antialiased overflow-hidden'
         suppressHydrationWarning
       >
         <Header />

@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { FC, useState } from 'react';
-import { LayoutGroup, motion } from 'framer-motion';
+import { LayoutGroup, motion, AnimateSharedLayout } from 'framer-motion';
 import Image from 'next/image';
 import { Logo } from '@/lib/info';
 import MobileMenu from './MobileMenu';
@@ -59,7 +59,7 @@ const Header: FC<HeaderProps> = ({}) => {
         </motion.a>
       </div>
       <LayoutGroup>
-        <nav className='hidden md:flex md:flex-row md:items-center md:justify-center md:px-8 py-4 md:py-6 w-full md:w-auto justify-center cursor-pointer'>
+        <nav className='hidden md:flex md:flex-row md:items-center md:justify-center md:px-8 py-4 md:py-6 w-full md:w-auto justify-center cursor-pointer space-x-4'>
           {Object.entries(navItems).map(([path, { name }]) => {
             const isActive = path === pathname;
             return (
@@ -75,7 +75,11 @@ const Header: FC<HeaderProps> = ({}) => {
                   }
                 )}
               >
-                <span className='relative py-[5px] px-[10px]'>
+                <motion.span
+                  className='relative py-[5px] px-[10px]'
+                  whileHover={{ scale: 1.1 }}
+                >
+                  {' '}
                   <Hover>{name}</Hover>
                   {path === pathname ? (
                     <motion.div
@@ -88,7 +92,7 @@ const Header: FC<HeaderProps> = ({}) => {
                       }}
                     />
                   ) : null}
-                </span>
+                </motion.span>
               </Link>
             );
           })}

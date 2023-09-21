@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { svgIcons } from '@/lib/icons';
 import { cn } from '@/lib/utils';
-import { name, title, role } from '@/lib/info';
+import { name, title, heading } from '@/lib/info';
 
 import Subheading from '@/components/ui/SubHeading';
 import Balancer from 'react-wrap-balancer';
@@ -24,13 +24,13 @@ const Home = async () => {
   return (
     <PageWrapper>
       <GradientBlur />
-      <section className='relative  flex flex-col items-center justify-center max-w-screen'>
+      <section className='relative flex flex-col items-center justify-center max-w-screen'>
         <div className='container'>
           <div className='flex flex-col items-center lg:items-start'>
             <h1 className='font-heading xxs:text-2xl text-4xl md:text-left lg:text-left '>
               <Balancer>
                 <span className='xxs:text-center xxs:inline-block text-2xl lg:text-4xl xl:text-4xl'>
-                  {title()}
+                  {heading()}
                 </span>
               </Balancer>
             </h1>
@@ -39,7 +39,7 @@ const Home = async () => {
               size='sm'
               className='xxs:text-base md:text-left lg:text-left -tracking-tighter text-neutral-100 pt-3 '
             >
-              {role()}
+              {title()}
             </Subheading>
 
             <h3 className='text-left lg:text-left tracking-tight text-gray-300 pt-3 leading-tight'>
@@ -78,21 +78,17 @@ const Home = async () => {
                   'tracking-tighter max-w-md lg:max-w-xl text-center lg:text-left mb-6 xxs:text-xs md:text-base text-zinc-300'
                 )}
               >
-                Based in the Bay Area, I love to build things on the web. These
-                days I&apos;m finding my path as a developer and learning new
-                things every day. I&apos;ve come to love building things with
-                React, Next.js, and Tailwind CSS. I&apos;m currently building my
-                first Saas product,{' '}
-                <Link href='https://logoaicreator.com/welcome'>
-                  <span className='underline'>LogoAICreator</span>
-                </Link>
-                , a logo maker that uses AI to generate logos.
+                I&apos;m a Bay Area-based Software Engineer, passionate about
+                crafting with React, Node.js, Next.js, and Tailwind CSS.
+                Constantly evolving in my developer journey; this is my digital
+                garden.
               </p>
             </div>
           </div>
         </div>
       </section>
       <hr className='border-neutral-800' />
+
       <section className='flex flex-col space-y-8 '>
         <div className='container'>
           {blog.map((post) => (
