@@ -12,12 +12,12 @@ interface BlogPostProps {
 }
 
 const BlogPost = ({ title, content, link }: BlogPostProps) => {
-  const truncatedContent = content.slice(0, 2);
+  const truncatedContent = content.slice(0, 1);
 
   return (
-    <div className='shadow-md rounded-lg mb-4 pt-4'>
+    <div className='relative shadow-md rounded-lg mb-4'>
       <Link href={link} className='group hover:unique'>
-        <h2 className='font-heading xxs:text-lg text-center md:text-2xl lg:text-2xl lg:text-left mb-6 group hover:gradient-text'>
+        <h2 className='font-heading xxs:text-lg text-center md:text-2xl lg:text-xl lg:text-left mb-6 group hover:gradient-text'>
           <Balancer>{title}</Balancer>
         </h2>
       </Link>
@@ -26,7 +26,7 @@ const BlogPost = ({ title, content, link }: BlogPostProps) => {
         <span className='text-sm'>•</span>
         <span className='text-sm'>2 min read</span>
       </div>
-      <div className='mt-2 text-gray-300 text-center md:text-base lg:text-left mb-6 xxs:text-xs tracking-tighter'>
+      <div className='mt-2 text-gray-400 text-center md:text-base lg:text-left mb-6 xxs:text-xs tracking-tighter'>
         <Balancer>
           <PortableText value={truncatedContent} />
         </Balancer>

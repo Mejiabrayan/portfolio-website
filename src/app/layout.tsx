@@ -4,21 +4,25 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 import { Analytics } from '@vercel/analytics/react';
 import localFont from 'next/font/local';
-
+import { Inter, Roboto_Mono } from 'next/font/google';
 import { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
-const fontHeading = localFont({
-  src: '../../assets/fonts/NeuzeitGrotesk-Bold.woff2',
-  variable: '--font-heading',
+// const fontHeading = localFont({
+//   src: '../../assets/fonts/NeuzeitGrotesk-Bold.woff2',
+//   variable: '--font-heading',
+// });
+
+const fontHeading = Inter({
+  variable: '--font',
+  subsets: ['latin'],
 });
 
-// const fontHeading = Inter({
-//   variable: '--font',
-//   subsets: ['latin'],
-
-// });
+const fontMono = Roboto_Mono({
+  variable: '--font-mono',
+  subsets: ['latin'],
+});
 
 const body = localFont({
   src: '../../assets/fonts/Biotif-Regular.woff',
@@ -69,7 +73,6 @@ export const metadata: Metadata = {
   },
 };
 
-
 export default function RootLayout({
   children,
 }: {
@@ -81,11 +84,12 @@ export default function RootLayout({
       className={cn(
         'text-gray-50 antialiased',
         fontHeading.variable,
-        body.variable
+        body.variable,
+        fontMono.variable
       )}
     >
       <body
-        className='bg-[#131313] min-h-screen antialiased overflow-hidden'
+        className='bg-[#121212] min-h-screen antialiased'
         suppressHydrationWarning
       >
         <Header />
